@@ -23,13 +23,12 @@ class BlackJack {
 
         //mÃ©todos utilizados no construtor (DEVEM SER IMPLEMENTADOS PELOS ALUNOS)
         this.new_deck = function () {
-            let naipes = ["O", "P", "C", "E"]; // Ouros, Paus, Copas, Espadas
+            let naipes = ["Ouros", "Paus", "Copas", "Espadas"]; // Ouros, Paus, Copas, Espadas
             let deck = [];
             let z = 0;
-            for (i = 0; i < naipes.length; i++) {
-                for (x = 0; x < 13; x++) {
+            for (var i = 0; i < naipes.length; i++) {
+                for (var x = 0; x < 13; x++) {
                     deck[z] = [naipes[i], (x + 1)];
-                    console.log(deck[i]);
                     z++;
                 }
             }
@@ -40,12 +39,12 @@ class BlackJack {
         this.shuffle = function (deck) {
             let indices = [];
             let deckBaralhado = [];
-            for (i = 0; i < 52; i++) {
+            for (var i = 0; i < 52; i++) {
                 indices[i] = (i + 1);
 
             }
             let size = indices.length;
-            for (i = 0; i < size; i++) {
+            for (var i = 0; i < size; i++) {
                 let num = Math.floor(Math.random() * indices.length);
                 let ind = indices[num];
                 deckBaralhado.push(deck[ind - 1]);
@@ -77,22 +76,48 @@ class BlackJack {
     //MÃ‰TODOS QUE DEVEM SER IMPLEMENTADOS PELOS ALUNOS
     get_cards_value(cards) {
         let pontos = 0;
-        for (i = 0; i < cards.length; i++) {
-            pontos += cards[i][1];
+        for (var i = 0; i < cards.length; i++) {
+            if (cards[i][1] > 1 && cards[i][1] <= 9) {
+                pontos += cards[i][1];
+            } else if (cards[i][1] > 9 && cards[i][1] < 13) {
+                pontos += 10;
+            }else if (cards[i][1] == 1 || cards[i][1] == 13){
+                if(pontos < (MAX_POINTS-11)) {
+                    pontos += 1;
+                }else {
+                    pontos += 11;
+                }
+            }
         }
         return pontos;
     }
 
     dealer_move() {
-
+        this.dealer_cards.push(this.deck[0]);
+        this.deck.splice(0, 1);
+        return this.get_game_state();
     }
 
     player_move() {
-
+        this.player_cards.push(this.deck[0]);
+        this.deck.splice(0, 1);
+        return this.get_game_state();
     }
 
     get_game_state() {
-        state
+        let dealerP = this.get_cards_value(this.get_dealer_cards());
+        let playerP = this.get_cards_value(this.get_player_cards());
+
+        if (playerP === MAX_POINTS) { // Jogador têm 21 Pontos - Jogador Ganha
+            this.state.gameEnded = true;
+        }else if(playerP > MAX_POINTS) { // Jogador têm mais de 21 Pontos - Jogador Rebenta
+            this.state.gameEnded = true;
+            this.state.playerBusted = true;
+            this.state.dealerWon = true;
+        }else if(dealerP > MAX_POINTS && dealerP > playerP) { //Dealer têm mais de 21 e mais pontos que o PlayerP - Dealer Rebenta
+            this.state.gameEnded = true;
+        }
+        return this.state;
     }
 }
 
