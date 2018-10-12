@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Calculadora</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <style>
+            body {margin: 0; padding: 0;}
+            p {font-size: 1.3rem; padding: 0; margin: 0;}
+            header {padding-top: 60px; padding-bottom: 60px; text-align: center;font-size: 1.5rem;background-color: graytext;}
+            .container {width: 100%; height: 530px; max-width: 580px; text-align: center;background-color: #b9b9b9; margin-left: auto; margin-right: auto;margin-top: 60px;border-radius: 15px;}
+            .resultHolder {float: left;width: 400px; height: 70px; background-color: white; margin-left: 105px; margin-top: 5px; border: 1px solid black; text-align: right}
+            #result {margin-right: 5px;}
+            #calc {margin-right: 5px; margin-bottom: 20px;}
+            .buttonsHolder {float: left; width: 100%; height: 100%;margin-top: 10px; text-align: center;}
+            button {float: left; width: 100%; max-width: 125px; height: 100%; max-height: 91px; margin-top: 15px; margin-left: 15px;}
+        </style>
+    </head>
+    <body>
+        <header>Calculadora</header>
+        <div class="container">
+            <div class="resultHolder">
+                <p id="calc"></p>
+                <p id="result"></p>
+            </div>
+            <div class="buttonsHolder">
+                <button value="7" class="vl">7</button>
+                <button value="8" class="vl">8</button>
+                <button value="9" class="vl">9</button>
+                <button value="X" class="vl">X</button>
+                <button value="4" class="vl">4</button>
+                <button value="5" class="vl">5</button>
+                <button value="6" class="vl">6</button>
+                <button value="-" class="vl">-</button>
+                <button value="1" class="vl">1</button>
+                <button value="2" class="vl">2</button>
+                <button value="3" class="vl">3</button>
+                <button value="+" class="vl">+</button>
+                <button value="/" class="vl">/</button>
+                <button value="0" class="vl">0</button>
+                <button value="." class="vl">.</button>
+                <button value="=" class="vl">=</button>
+            </div>
+        </div>
+        <script type="text/javascript">
+            let text = "";
+            let result = 0;
+            $('[class^=vl]').click(function () {
+
+                if (this.value === "=") {
+                    result = Number(text);
+                    document.getElementById("result").innerHTML = result;
+                }else {
+                    text = text + this.value
+                    document.getElementById("calc").innerHTML = text;
+                }
+            });
+        </script>
+    </body>
+</html>
