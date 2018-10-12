@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>PCM 1º Trabalho - Contacts</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="css/styling.css">
+        <link href="https://unpkg.com/ionicons@4.4.4/dist/css/ionicons.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    </head>
+    <body>
+        <header>
+            <div class="header_holder">
+                <div class="logo">
+                    <img src="imgs/sdesignslogo.png" width="165" height="50" alt="sdesignslogo"/>
+                </div>
+                <div class="topnav" id="myTopnav">
+                    <a href="home.html">Home</a>
+                    <a href="portoflio.html">Portfolio</a>
+                    <a href="about.html">About</a>
+                    <a href="contacts.html">Contacts</a>
+                    <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+                        <i class="fa fa-bars"></i>
+                    </a>
+                </div>
+            </div>
+        </header>
+        <main class="landing">
+            <div class="contacts">
+                <div class="container">
+                    <div class="title">
+                        Contacts
+                    </div>
+                    <form>
+                        <label for="fname">First Name</label>
+                        <input type="text" id="fname" name="firstname" placeholder="Your name..">
+                        <label for="lname">Last Name</label>
+                        <input type="text" id="lname" name="lastname" placeholder="Your last name..">
+                        <label for="email">E-mail</label>
+                        <input type="text" id="email" name="email" placeholder="Your Email..">
+                        <input type="submit" value="Submit">
+                    </form>
+                </div>
+            </div>
+        </main>
+        <footer class="page-footer">
+            <div class="container">
+                <div class="links">
+                    <a href="about.html">About</a>
+                    <a href="contacts.html">Contacts</a>
+                    <a href="portoflio.html">Projects</a>
+                </div>
+                <div class="social-icons">
+                    <a href="https://www.facebook.com/sdesignspt/">
+                        <i class="iconSocial fab fa-facebook"></i>
+                    </a>
+                    <a href="#">
+                        <i class="iconSocial fab fa-instagram"></i>
+                    </a>
+                </div>
+            </div>
+        </footer>
+        <script>
+            function myFunction() {
+                var x = document.getElementById("myTopnav");
+                if (x.className === "topnav") {
+                    x.className += " responsive";
+                } else {
+                    x.className = "topnav";
+                }
+            }
+        </script>
+    </body>
+</html>

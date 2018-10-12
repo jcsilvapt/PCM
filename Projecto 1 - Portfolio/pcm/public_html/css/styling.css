@@ -1,0 +1,607 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 30/set/2018, 13:10:36
+    Author     : jorge
+*/
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: "Calibri", Arial;
+}
+section, header, footer {
+    display: block;
+}
+a {
+    text-decoration: none;
+}
+p {
+    margin-top: 0px;
+}
+.imgResponsive {
+    width: 100%;
+    height: auto;
+}
+h6 {
+    margin-bottom: .5rem;
+    font-family: inherit;
+    font-weight: 500;
+    line-height: 1.2;
+    color: inherit;
+}
+h4 {
+    font-size: 1.2rem;
+}
+a:-webkit-any-link {
+    cursor: pointer; 
+}
+img, svg {
+    vertical-align: middle;
+    border-style: none;
+    width: 100%;
+    height: auto;
+}
+/** Phone **/
+
+/** Screen greater than tablet **/
+
+header {
+    position: fixed;
+    right: 0;
+    left: 0;
+    height: 90px;
+    background: linear-gradient(120deg,#769169,#52739c);
+    box-shadow: 0 4px 10px rgba(0,0,0,.1);
+    z-index: 5000;
+}
+
+.container {
+    width: 100%;
+    max-width: 1400px;
+    min-width: 980px;
+    margin-top: 28px;
+    height: 100%;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+.divider {
+    margin-top: 25px;
+    float: left;
+    width: 100%;
+    height: 1px;
+    position: relative;
+    background: linear-gradient(120deg,#fff,#BEBEBE,#fff);
+}
+
+header .header_holder {
+    width: 90%;
+    margin-right: auto;
+    margin-left: auto;
+    height: 100%;
+}
+
+header .header_holder .logo {
+    float: left;
+    width: 165px;
+    height: 50px;
+    margin-top: 15px;
+    margin-left: 5%;
+}
+.topnav {
+    overflow: hidden;
+    float: right;
+}
+.topnav a {
+    float: left;
+    display: block;
+    color: white;
+    text-align: center;
+    margin-top: 15px;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 1.5rem;
+}
+.topnav a:hover {
+    opacity: .75;
+    text-decoration: underline;
+}
+.topnav .icon {
+    display: none;
+    margin-top: 30px;
+    margin-right: 30px;
+}
+.iconSocial {
+    color: white;
+    padding-top: 8px;
+}
+.landing {
+    padding-top: 10rem;
+}
+
+
+.landing .block-intro {
+    text-align: center;
+}
+.avatar {
+    width: 150px;
+    height: 150px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin: auto;
+    border-radius: 100px;
+    margin-bottom: 30px;
+}
+
+.landing .about-me {
+    max-width: 1250px;
+    margin: 0 auto;
+}
+
+p {
+    font-size: 1.5em;
+    font-weight: 300;
+    margin-bottom: 30px;
+}
+.btn {
+    display: inline-block;
+    font-weight: 400;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    border: 1px solid transparent;
+    padding: .375rem 1rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: 2em;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+.btn-outline-primary {
+    box-shadow: 0 0 0 .2rem rgba(14,160,255,.5);
+    text-decoration: none;
+    color: #0075c1;
+}
+
+.btn-outline-primary:hover {
+    color: #fff;
+    background-color: #0ea0ff;
+    border-color: #0ea0ff;
+}
+
+.randomWork {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+.randomWork .container .worksC img {
+    min-width: 300px;
+    min-height: 300px;
+}
+.randomWork .container .worksC {
+    margin-left: 8%;
+    padding-left: 15px;
+    padding-right: 15px;
+    position: relative;
+    float:left;
+    width: 20%;
+}
+.image {
+    float: left;
+    width: 100%;
+    height: auto;
+}
+.overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(45deg,#769169,#52739c);
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    transform: scale(0);
+    transition: .3s ease;
+}
+.worksC:hover .overlay {
+    transform: scale(1);
+}
+
+.text {
+    color:white;
+    font-size: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+.randomworkText {
+    padding-bottom: 60px;
+}
+.centerText {
+    text-align: center;
+    max-width: 850px;
+    margin: 0 auto;
+    align-items: center;
+}
+.centerText p {
+    font-size: 2rem;
+}
+.skills {
+    width: 100%;
+    height: 20rem;
+    background: linear-gradient(120deg,#769169,#52739c);
+}
+.skillsText {
+    float:left;
+    width: 600px;
+    margin-top: 50px;
+    height: 200px;
+    text-align: right;
+}
+.skillsText p {
+    color:white;
+    font-size: 1.2rem;
+}
+.skillsimg {
+    margin-top: 50px;
+    height: 200px;
+    padding-left: 45px;
+    float: left;
+}
+.screen {
+    float:left;
+    border: 1px solid #9c9c9c;
+    border-bottom: none;
+    width: 250px;
+    height: 160px;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: white;
+    position: relative;
+    left: 15px;
+}
+.screen .screen-content {
+    border: 1px solid #c5c5c5;
+    background-position: 50%;
+    background-size: cover;
+    height: 100%;
+}
+.keyboard {
+    width: 280px;
+    height: 10px;
+    border: 1px solid #9c9c9c;
+    border-bottom-left-radius: 7px;
+    border-bottom-right-radius: 7px;
+    background-color: white; 
+    margin-top: 182px;
+    margin-left: 10px;
+}
+.page-footer {
+    padding-top: 35px;
+    border-top: 1px solid #ddd;
+    text-align: center;
+    padding-bottom: 20px;
+}
+.page-footer .links {
+    display: inline-block;
+}
+
+.page-footer a {
+    margin: 0 10px;
+    color: #282b2d;
+    font-size: 18px;
+}
+.page-footer a:hover {
+    color: #0075c1;
+    text-decoration: underline;
+}
+
+.page-footer .social-icons {
+    margin-top: 20px;
+    margin-bottom: 16px;
+}
+
+.page-footer .social-icons a {
+    font-size: 18px;
+    margin: 0 3px;
+    color: white;
+    border: 1px solid;
+    opacity: .75;
+    border-radius: 50%;
+    width: 36px;
+    display: inline-block;
+    height: 36px;
+    text-align: center;
+    background-color: #c5c9d2;
+    line-height: 34px;
+    font-family: "Calibri", Arial;
+}
+
+.page-footer .social-icons a:hover {
+    opacity: 1;
+}
+
+.portfolio-block {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    text-align: center;
+}
+.title {
+    font-size: 3rem;
+    padding-bottom: 15px;
+}
+.port-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+.box {
+    margin-left: 7%;
+    width: 100%;
+    max-width: 350px;
+    min-height: 150px;
+    margin-right: 15px;
+    margin-top: 5%;
+}
+
+.box .box-img {
+    float: left;
+    width: 100%;
+    min-height: 180px;
+    max-height: 280px;
+    background-color: white;
+    border: rgba(1,1,1,.05) 1px solid;
+}
+.box .box-img a img {
+    width: 100%;
+    max-height: 180px;
+}
+.box .box-img:hover {
+    transition: .3s ease;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.portfolio-block h6 {
+    font-size: 2rem;
+    padding: 0;
+    margin: 0;
+    font-weight: 700;
+}
+.portfolio-block a {
+    color: inherit;
+}
+.portfolio-block .box-text {
+    color: #6c757d;
+    text-align: center;
+    font-size: 1em;
+}
+
+.mabout {
+    padding-top: 60px;
+    padding-bottom: 60px;
+    text-align: center;
+}
+.workExp {
+    padding-top: 60px;
+    padding-bottom: 100px;
+    text-align: center;
+}
+.exp-box {
+    width: 90%;
+    height: 100%;
+    min-height: 100px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+}
+.exp-box .exp-text-box {
+    position: relative;
+}
+.exp-title {
+    position: absolute;
+    max-width: 500px;;
+    min-width: 50px;
+    display: inline;
+    width: 100%;
+    height: 60px;
+    text-align: left;
+    font-size: 1.5em;
+    font-weight: 700;
+    left: 0;   
+}
+.exp-date {
+    position: absolute;
+    max-width: 500px;
+    min-width: 100px;
+    width: 100%;
+    height: 45px;
+    right: 0;
+    text-align: right;
+    padding-top: 5px;
+}
+.period {
+    font-size: 1rem;
+    float: none;
+    font-weight: 700;
+    color: #6c757d;
+    opacity: .8;
+}
+.exp-title h4 {
+    font-size: 18px;
+    margin: 0;
+    padding: 0;
+}
+.exp-title h3 {
+    margin: 0;
+    font-size: 1.3rem;
+}
+.organization {
+    width: 30%;
+    background-color: cyan;
+    border-radius: 2rem;
+    text-align: center;
+    display: inline-block;
+    background-color: #0ea0ff;
+    color: white;
+    font-weight: 500;
+}
+.exp-box .about-text {
+    position: absolute;
+    width: 100%;
+    color: #6c757d;
+    text-align: left;
+    font-size: 1.2em;
+    margin-top: 60px;
+}
+.contacts {
+    padding-top: 60px;
+    padding-bottom: 60px;
+    text-align: center;
+}
+input[type=text], select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+input[type=submit] {
+    width: 100%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+input[type=submit]:hover {
+    background-color: #45a049;
+}
+form {
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+
+/**Phone and Tablet**/
+
+@media only screen and (max-width: 993px) {
+    .container {
+        width: 70%;
+        max-width: 993px;
+        min-width: 100px;
+        height: 100%;
+    }
+
+    header {
+        height: 120px;
+        text-align: center;
+        vertical-align: central;
+    }
+    header .header_holder .logo {
+        margin-top: 30px;
+        margin-left: 35px;
+    }
+    .navbar-logo {
+        width: 100%;
+        left: 0;
+        right: 0;
+        margin-top: 15px;
+        margin-bottom: 5px;
+    }
+
+    .topnav a {
+        display: none;
+        margin-top: 0;
+    }
+    .topnav a.icon {
+        float: right;
+        display: block;
+    }
+
+    .topnav.responsive {
+        position: relative;
+        float: right;
+        padding-top: 120px;
+    }
+    .topnav.responsive .icon {
+        position: absolute;
+        right: 0;
+        top: 0;
+        color: white;
+        opacity: .75;
+
+    }
+    .topnav.responsive > a:not(:last-child) {
+        float: none;
+        display: block;
+        color: white;
+        background-color: rgba(0,0,0,.75);
+    }
+
+    /*    nav {
+            position: absolute;
+            width: 50%;
+            left:0;
+            margin-top: 50px;
+            max-width: 990px;
+        }*/
+    header nav .navbar {
+        width: 100%;
+        float: left;
+
+    }
+    .skills {
+        height: 30rem;
+    }
+    .skills .skillsText {
+        width: 300px;
+        text-align: center;
+        float: none;
+        padding-top: 15px;
+        margin-right: auto;
+        margin-left: auto
+    }
+    .skills .skillsimg {
+        float:none;
+        width: 300px;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 0;
+    }
+    .screen {
+        float: none;
+        padding: 10px;
+    }
+    .keyboard {
+        float: none;
+        margin-top: 0;
+    }
+    form {
+        width: 100%;
+    }
+    .organization {
+        width: 45%;
+    }
+    .exp-box {
+        width: 100%;
+        height: 100%;
+        min-height: 105px;
+        padding-bottom: 25px;
+        border-bottom: 1px solid gray;
+    }
+}

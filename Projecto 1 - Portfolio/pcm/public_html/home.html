@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>PCM 1º Trabalho - Home</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="css/styling.css">
+        <link href="https://unpkg.com/ionicons@4.4.4/dist/css/ionicons.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    </head>
+    <body>
+        <header>
+            <div class="header_holder">
+                <div class="logo">
+                    <img src="imgs/sdesignslogo.png" width="165" height="50" alt="sdesignslogo"/>
+                </div>
+                <div class="topnav" id="myTopnav">
+                    <a href="home.html">Home</a>
+                    <a href="portoflio.html">Portfolio</a>
+                    <a href="about.html">About</a>
+                    <a href="contacts.html">Contacts</a>
+                    <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+                        <i class="fa fa-bars"></i>
+                    </a>
+                </div>
+            </div>
+        </header>
+        <main class="landing">
+            <section class="block-intro">
+                <div class="container">
+                    <div class="avatar" style="background-image: url(imgs/self.jpg);"></div>
+                    <div class="about-me">
+                        <p>
+                            Hello! I am
+                            <strong>Jorge Silva.</strong>
+                            Currently I'm in the second year of LEIM.
+                        </p>
+                        <a class='btn btn-outline-primary' role="button" href="about.html">More about me</a>
+                    </div>
+                </div>
+            </section>
+            <div class="divider"></div>
+            <section class="randomWork">
+                <div class="container">
+                    <div class="port-container">
+                        <div class="box">
+                            <div class="box-img">
+                                <a href="#">
+                                    <img src="imgs/segurqual.JPG" alt="WebDesign" class="image"/>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="box">
+                            <div class="box-img">
+                                <a href="#">
+                                    <img src="imgs/14448957_10210136860436147_5582345986416912902_n.jpg" alt="Avatar" class="image"/>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="box">
+                            <div class="box-img">
+                                <a href="#">
+                                    <img src="imgs/self1.jpg" alt="Avatar" class="image"/>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="randomworkText">
+                <div class="container">
+                    <div class="centerText">
+                        <p>
+                            Like what you see?
+                        </p>
+                        <a class="btn btn-outline-primary" role="button" href="portoflio.html">See more</a>
+                    </div>
+                </div>
+            </section>
+            <section class="skills">
+                <div class="container">
+                    <div class="skillsText">
+                        <h3 style="color:white; margin-bottom: .5rem; font-weight: 500; line-height: 1.2; font-size: 2rem;">Skills</h3>
+                        <p>
+                            Currently have zero skills ... but i'm trying<br>
+                            trust me i will be an engineer
+                        </p>
+                    </div>
+                    <div class="skillsimg">
+                        <div class="screen">
+                            <div class="screen-content" style="background-image: url(imgs/image6.png);"></div>
+                        </div>
+                        <div class="keyboard"></div>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <footer class="page-footer">
+            <div class="container">
+                <div class="links">
+                    <a href="about.html">About</a>
+                    <a href="contacts.html">Contacts</a>
+                    <a href="portoflio.html">Projects</a>
+                </div>
+                <div class="social-icons">
+                    <a href="https://www.facebook.com/sdesignspt/">
+                        <i class="iconSocial fab fa-facebook"></i>
+                    </a>
+                    <a href="#">
+                        <i class="iconSocial fab fa-instagram"></i>
+                    </a>
+                </div>
+            </div>
+        </footer>
+        <script>
+            function myFunction() {
+                var x = document.getElementById("myTopnav");
+                if (x.className === "topnav") {
+                    x.className += " responsive";
+                } else {
+                    x.className = "topnav";
+                }
+            }
+        </script>
+    </body>
+</html>
