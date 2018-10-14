@@ -21,38 +21,58 @@ function finalize_buttons() {
 
 //FUNÇÕES QUE DEVEM SER IMPLEMENTADOS PELOS ALUNOS
 function new_game() {
-    buttons_initialization();
+    clear();
     game = new BlackJack();
+    buttons_initialization();
     game.dealer_move();
     game.dealer_move();
-    game.player_move();
-    draw_card(game.get_dealer_cards()[0], "dealer");
-    draw_card(['c',0], "dealer");
-    draw_card(game.get_player_cards()[0], "player");
+    draw_card(game.get_dealer_cards()[0], "dealerIMG");
+    draw_card(['c', 0], "dealerIMG");
+    player_new_card();
     debug(game);
 }
 
 function update_dealer(state) {
-    document.getElementById("dealer").innerHTML = game.get_dealer_cards()[0] + ",X,X";
-    if (game.get_game_state().gameEnded === true && game.get_game_state().dealerWon === true) {
-        document.getElementById("dealer").innerHTML = game.get_dealer_cards() + " Pontos: " + game.get_cards_value(game.get_dealer_cards()) + " VITORIA!";
-        finalize_buttons();
+    var img = document.getElementById("dealerIMG");
+    while (img.firstChild) {
+        img.removeChild(img.firstChild);
+    }
+    for (var i = 0; i < game.get_dealer_cards().length; i++) {
+        draw_card(game.get_dealer_cards()[i], "dealerIMG");
+    }
+    document.getElementById("dealer").innerHTML = "Points: " + game.get_cards_value(game.get_dealer_cards());
+    if(state.gameEnded == true) {
+        if(state.dealerWon == true || state.playerBusted == true) {
+            document.getElementById("title").innerHTML = "Result";
+            document.getElementById("result").innerHTML = "Dealer WON!";
+        }else if(state.dealerWon === false && state.playerBusted === false) {
+            document.getElementById("title").innerHTML = "Result";
+            document.getElementById("result").innerHTML = "Player WON!";
+            
+        }
+        finalize_buttons()
     }
     debug(game);
 }
 
 function update_player(state) {
-    for(var i = 0 ; i < game.get_player_cards().length; i++){
-        console.log(game.get_player_cards()[i+1]);
-        draw_card(game.get_player_cards()[i+1], "player");
+    var img = document.getElementById("playerIMG");
+    while (img.firstChild) {
+        img.removeChild(img.firstChild);
     }
-    if (game.get_game_state().gameEnded === true && game.get_game_state().dealerWon === false && game.get_game_state().playerBusted === false) {
-        document.getElementById("dealer").innerHTML = game.get_dealer_cards() + " Pontos: " + game.get_cards_value(game.get_dealer_cards());
-        document.getElementById("player").innerHTML = game.get_player_cards() + " Pontos: " + game.get_cards_value(game.get_player_cards()) + " VITORIA!";
-        finalize_buttons();
-    } else if (game.get_game_state().gameEnded === true && game.get_game_state().playerBusted === true) {
-        document.getElementById("dealer").innerHTML = game.get_dealer_cards() + " Pontos: " + game.get_cards_value(game.get_dealer_cards()) + " VITORIA!";
-        finalize_buttons();
+    for (var i = 0; i < game.get_player_cards().length; i++) {
+        draw_card(game.get_player_cards()[i], "playerIMG");
+    }
+    document.getElementById("player").innerHTML = "Points: " + game.get_cards_value(game.get_player_cards());
+    if (state.gameEnded === true) {
+        if (state.dealerWon === false && state.playerBusted === false) {
+            document.getElementById("title").innerHTML = "Result";
+            document.getElementById("result").innerHTML = "Player WON!";
+            update_dealer(state);
+        }else if(state.dealerWon === true || state.playerBusted === true) {
+            update_dealer(state);
+        }
+        finalize_buttons()    
     }
     debug(game);
 }
@@ -67,7 +87,11 @@ function player_new_card() {
 }
 
 function dealer_finish() {
-
+    var state = game.get_game_state();
+    game.setDealerTurn(true);
+    while(state.gameEnded !== true){
+        update_dealer(game.dealer_move());
+    }
 }
 
 function draw_card(card, where) {
@@ -125,5 +149,32 @@ function draw_card(card, where) {
     x.setAttribute("width", "100");
     x.setAttribute("height", "130");
     x.setAttribute("alt", "cenas");
+    x.setAttribute("padding", "5");
     document.getElementById(where).appendChild(x);
+}
+
+function clear() {
+    document.getElementById("title").innerHTML = "";
+    document.getElementById("result").innerHTML = "";
+    document.getElementById("dealer").innerHTML = "";
+    document.getElementById("player").innerHTML = "";
+    var img = document.getElementById("playerIMG");
+    while (img.firstChild) {
+        img.removeChild(img.firstChild);
+    }
+    var img = document.getElementById("dealerIMG");
+    while (img.firstChild) {
+        img.removeChild(img.firstChild);
+    }
+}
+
+function active() {
+    var checkBox = document.getElementById("btnDebug");
+    var text = document.getElementById("sec_debug");
+    
+    if(checkBox.checked == true) {
+        text.style.display = "block";
+    }else {
+        text.style.display = "none";
+    }
 }

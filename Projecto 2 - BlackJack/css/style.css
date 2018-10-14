@@ -1,0 +1,68 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 14/out/2018, 13:12:49
+    Author     : jorge
+*/
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: black;
+    color: white;
+    font-family: "Calibri", Arial;
+    min-width: 500px;
+}
+h1,h2, p {
+    margin: 0;
+    padding: 0;
+}
+header {
+    width: 100%;
+    height: 100px;
+    border-bottom: 1px solid gray;
+    text-align: center;
+}
+header > h1 {
+    padding-top: 25px; 
+}
+
+#holder {
+    padding-top: 60px;
+    padding-bottom: 60px;
+    text-align: center;
+}
+.container {
+    width: 90%;
+    height: 100%;
+    max-width: 1400px;
+    min-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.table {
+    min-height: 500px;
+    background-color: brown;
+    padding: 15px 15px;
+    border-radius: 25px;
+}
+.pane {
+    width: 100%;
+    max-width: 1370px;
+    height: 500px;
+    background-color: green;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 25px;
+    -moz-box-shadow: inset 0 0 10px black;
+    -webkit-box-shadow: inset 0 0  10px black;
+    box-shadow: inset 0 0 10px black;
+}
+#game > h2 {
+    font-size: 2rem;
+    padding-top: 15px
+}

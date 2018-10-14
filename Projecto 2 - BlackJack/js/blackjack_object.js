@@ -81,11 +81,11 @@ class BlackJack {
                 pontos += cards[i][1];
             } else if (cards[i][1] > 9 && cards[i][1] < 13) {
                 pontos += 10;
-            }else if (cards[i][1] == 1 || cards[i][1] == 13){
-                if(pontos < (MAX_POINTS-11)) {
-                    pontos += 1;
-                }else {
+            }else{
+                if(pontos <= (MAX_POINTS-11)) {
                     pontos += 11;
+                }else {
+                    pontos += 1;
                 }
             }
         }

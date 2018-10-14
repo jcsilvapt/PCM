@@ -1,41 +1,79 @@
 <!DOCTYPE html>
 <html>
 
-  <head>
-    <meta charset="UTF-8">
-    <script src="js/blackjack_object.js"></script>
-    <script src="js/blackjack_manager.js"></script>
-    <title>BlackJack</title>
-    <style>
-        img {
-            margin-right: 5px;
-        }
-    </style>
-  </head>
+    <head>
+        <meta charset="UTF-8">
+        <script src="js/blackjack_object.js"></script>
+        <script src="js/blackjack_manager.js"></script>
+        <link href="css/style.css" rel="stylesheet" type="text/css"/>
+        <title>BlackJack</title>
+    </head>
 
-  <body>
-    <header>
-      <h1>BLACKJACK</h1>
-    </header>
-
-    <section id="game">
-      <h1>Dealer</h1>
-      <p id="dealer"></p>
-      <h1>Player</h1><p id="player"></p>
-      <button id="card" type="button" onclick="player_new_card()">Card</button>
-      <button id="stand" type="button" onclick="draw_card(['Ouros', 1])">Stand</button> <!--dealer_finish()-->
-      <button id="new_game" type="button" onclick="new_game()" disabled>New Game</button>
-    </section>
-
-    <section id="sec_debug">
-      <h1>Debug</h1>
-      <p id="debug"></p>
-    </section>
-
-    <section>
-      <script> window.onload = new_game();</script>
-    </section>
-    <footer></footer>
-  </body>
+    <body>
+        <header>
+            <h1>BLACKJACK</h1>
+            <p>2º Projecto de PCM</p>
+        </header>
+        <div id="holder">
+            <div class="container">
+                <div class="table">
+                    <div class="pane">
+                        <section id="game">
+                            <h2 id="title"></h2>
+                            <p id="result"></p>
+                            <div class="dHolder">
+                                <h1>Dealer</h1>
+                                <div id="dealerIMG"></div>
+                                <p id="dealer"></p>
+                            </div>
+                            <div class="pHolder">
+                                <h1>Player</h1>
+                                <div id="playerIMG"></div>
+                                <p id="player"></p>
+                            </div>
+                            <div class="buttons">
+                                <button id="card" type="button" onclick="player_new_card()">Card</button>
+                                <button id="stand" type="button" onclick="dealer_finish()">Stand</button>
+                                <button id="new_game" type="button" onclick="new_game()" disabled="">New Game</button>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </div>
+        Debug Console: <input type="checkbox" name="debug_active" id="btnDebug" onclick="active()">
+        <section id="sec_debug" style="display: none;">
+            <h1>Debug</h1>
+            <p id="debug"></p>
+        </section>
+        <section>
+            <script> window.onload = new_game();</script>
+        </section>
+        <!--    <header>
+              <h1>BLACKJACK</h1>
+            </header>
+        
+            <section id="game">
+              <h1>Dealer</h1>
+              <div id="dealerIMG"></div>
+              <p id="dealer"></p>
+              <h1>Player</h1>
+              <div id="playerIMG"></div>
+              <p id="player"></p>
+              <button id="card" type="button" onclick="player_new_card()">Card</button>
+              <button id="stand" type="button" onclick="dealer_finish()">Stand</button> 
+              <button id="new_game" type="button" onclick="new_game()" disabled>New Game</button>
+            </section>
+        
+            <section id="sec_debug">
+              <h1>Debug</h1>
+              <p id="debug"></p>
+            </section>
+        
+            <section>
+              <script> window.onload = new_game();</script>
+            </section>
+            <footer></footer>-->
+    </body>
 
 </html> 
