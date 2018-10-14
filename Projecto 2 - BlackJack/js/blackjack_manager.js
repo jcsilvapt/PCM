@@ -41,14 +41,14 @@ function update_dealer(state) {
         draw_card(game.get_dealer_cards()[i], "dealerIMG");
     }
     document.getElementById("dealer").innerHTML = "Points: " + game.get_cards_value(game.get_dealer_cards());
-    if(state.gameEnded == true) {
-        if(state.dealerWon == true || state.playerBusted == true) {
+    if (state.gameEnded == true) {
+        if (state.dealerWon == true || state.playerBusted == true) {
             document.getElementById("title").innerHTML = "Result";
             document.getElementById("result").innerHTML = "Dealer WON!";
-        }else if(state.dealerWon === false && state.playerBusted === false) {
+        } else if (state.dealerWon === false && state.playerBusted === false) {
             document.getElementById("title").innerHTML = "Result";
             document.getElementById("result").innerHTML = "Player WON!";
-            
+
         }
         finalize_buttons()
     }
@@ -69,10 +69,10 @@ function update_player(state) {
             document.getElementById("title").innerHTML = "Result";
             document.getElementById("result").innerHTML = "Player WON!";
             update_dealer(state);
-        }else if(state.dealerWon === true || state.playerBusted === true) {
+        } else if (state.dealerWon === true || state.playerBusted === true) {
             update_dealer(state);
         }
-        finalize_buttons()    
+        finalize_buttons()
     }
     debug(game);
 }
@@ -84,13 +84,20 @@ function dealer_new_card() {
 
 function player_new_card() {
     update_player(game.player_move());
+            document.getElementById("title").innerHTML = "";
+        document.getElementById("result").innerHTML = "";
 }
 
 function dealer_finish() {
-    var state = game.get_game_state();
-    game.setDealerTurn(true);
-    while(state.gameEnded !== true){
-        update_dealer(game.dealer_move());
+    if (game.get_player_cards().length > 1) {
+        var state = game.get_game_state();
+        game.setDealerTurn(true);
+        while (state.gameEnded !== true) {
+            update_dealer(game.dealer_move());
+        }
+    }else {
+        document.getElementById("title").innerHTML = "MOVE ERROR:";
+        document.getElementById("result").innerHTML = "You need 2 cards to do that!";
     }
 }
 
@@ -98,44 +105,44 @@ function draw_card(card, where) {
     var x = document.createElement("IMG");
     switch (card[0]) {
         case "Ouros":
-            if (card[1] == 1 || card[1] == 13) {
+            if (card[1] === 1 || card[1] === 13) {
                 x.setAttribute("src", "images/ace_of_diamonds.png");
             } else {
                 for (var i = 0; i < 13; i++) {
-                    if (card[1] == i) {
+                    if (card[1] === i) {
                         x.setAttribute("src", "images/" + i + "_of_diamonds.png");
                     }
                 }
             }
             break;
         case "Paus":
-            if (card[1] == 1 || card[1] == 13) {
+            if (card[1] === 1 || card[1] === 13) {
                 x.setAttribute("src", "images/ace_of_clubs.png");
             } else {
                 for (var i = 0; i < 13; i++) {
-                    if (card[1] == i) {
+                    if (card[1] === i) {
                         x.setAttribute("src", "images/" + i + "_of_clubs.png");
                     }
                 }
             }
             break;
         case "Copas":
-            if (card[1] == 1 || card[1] == 13) {
+            if (card[1] === 1 || card[1] === 13) {
                 x.setAttribute("src", "images/ace_of_hearts.png");
             } else {
                 for (var i = 0; i < 13; i++) {
-                    if (card[1] == i) {
+                    if (card[1] === i) {
                         x.setAttribute("src", "images/" + i + "_of_hearts.png");
                     }
                 }
             }
             break;
         case "Espadas":
-            if (card[1] == 1 || card[1] == 13) {
+            if (card[1] === 1 || card[1] === 13) {
                 x.setAttribute("src", "images/ace_of_spades.png");
             } else {
                 for (var i = 0; i < 13; i++) {
-                    if (card[1] == i) {
+                    if (card[1] === i) {
                         x.setAttribute("src", "images/" + i + "_of_spades.png");
                     }
                 }
@@ -171,10 +178,10 @@ function clear() {
 function active() {
     var checkBox = document.getElementById("btnDebug");
     var text = document.getElementById("sec_debug");
-    
-    if(checkBox.checked == true) {
+
+    if (checkBox.checked == true) {
         text.style.display = "block";
-    }else {
+    } else {
         text.style.display = "none";
     }
 }

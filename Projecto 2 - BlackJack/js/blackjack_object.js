@@ -114,8 +114,11 @@ class BlackJack {
             this.state.gameEnded = true;
             this.state.playerBusted = true;
             this.state.dealerWon = true;
-        }else if(dealerP > MAX_POINTS && dealerP > playerP) { //Dealer têm mais de 21 e mais pontos que o PlayerP - Dealer Rebenta
+        }else if(dealerP > MAX_POINTS) { //Dealer têm mais de 21 e mais pontos que o PlayerP - Dealer Rebenta
             this.state.gameEnded = true;
+        }else if(this.dealerTurn && dealerP <= MAX_POINTS && dealerP > playerP) {
+            this.state.gameEnded = true;
+            this.state.dealerWon = true;
         }
         return this.state;
     }
