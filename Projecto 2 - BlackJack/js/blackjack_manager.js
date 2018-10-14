@@ -41,8 +41,8 @@ function update_dealer(state) {
         draw_card(game.get_dealer_cards()[i], "dealerIMG");
     }
     document.getElementById("dealer").innerHTML = "Points: " + game.get_cards_value(game.get_dealer_cards());
-    if (state.gameEnded == true) {
-        if (state.dealerWon == true || state.playerBusted == true) {
+    if (state.gameEnded === true) {
+        if (state.dealerWon === true || state.playerBusted === true) {
             document.getElementById("title").innerHTML = "Result";
             document.getElementById("result").innerHTML = "Dealer WON!";
         } else if (state.dealerWon === false && state.playerBusted === false) {
@@ -50,7 +50,7 @@ function update_dealer(state) {
             document.getElementById("result").innerHTML = "Player WON!";
 
         }
-        finalize_buttons()
+        finalize_buttons();
     }
     debug(game);
 }
@@ -72,7 +72,7 @@ function update_player(state) {
         } else if (state.dealerWon === true || state.playerBusted === true) {
             update_dealer(state);
         }
-        finalize_buttons()
+        finalize_buttons();
     }
     debug(game);
 }
