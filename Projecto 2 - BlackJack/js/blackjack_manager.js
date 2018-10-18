@@ -32,7 +32,7 @@ function new_game() {
     debug(game);
 }
 
-function update_dealer(state) {
+function update_win() {
     var img = document.getElementById("dealerIMG");
     while (img.firstChild) {
         img.removeChild(img.firstChild);
@@ -40,13 +40,20 @@ function update_dealer(state) {
     for (var i = 0; i < game.get_dealer_cards().length; i++) {
         draw_card(game.get_dealer_cards()[i], "dealerIMG");
     }
+}
+
+function update_dealer(state) {
+    let cards = game.get_dealer_cards();
+    draw_card(cards[cards.length - 1], "dealerIMG");
     document.getElementById("dealer").innerHTML = "Points: " + game.get_cards_value(game.get_dealer_cards());
     if (state.gameEnded === true) {
-        if (state.dealerWon === true || state.playerBusted === true) {
-            document.getElementById("title").innerHTML = "Result";
+        this.update_win();
+        document.getElementById("title").innerHTML = "Result";
+        if (state.tie === true) {
+            document.getElementById("result").innerHTML = "TIE!";
+        } else if (state.dealerWon === true || state.playerBusted === true) {
             document.getElementById("result").innerHTML = "Dealer WON!";
         } else if (state.dealerWon === false && state.playerBusted === false) {
-            document.getElementById("title").innerHTML = "Result";
             document.getElementById("result").innerHTML = "Player WON!";
 
         }
@@ -56,19 +63,16 @@ function update_dealer(state) {
 }
 
 function update_player(state) {
-    var img = document.getElementById("playerIMG");
-    while (img.firstChild) {
-        img.removeChild(img.firstChild);
-    }
-    for (var i = 0; i < game.get_player_cards().length; i++) {
-        draw_card(game.get_player_cards()[i], "playerIMG");
-    }
+    let cards = game.get_player_cards();
+    draw_card(cards[cards.length - 1], "playerIMG");
     document.getElementById("player").innerHTML = "Points: " + game.get_cards_value(game.get_player_cards());
     if (state.gameEnded === true) {
-        if (state.dealerWon === false && state.playerBusted === false) {
-            document.getElementById("title").innerHTML = "Result";
+        this.update_win();
+        document.getElementById("title").innerHTML = "Result";
+        if (state.tie === true) {
+            document.getElementById("result").innerHTML = "TIE!";
+        } else if (state.dealerWon === false && state.playerBusted === false) {
             document.getElementById("result").innerHTML = "Player WON!";
-            update_dealer(state);
         } else if (state.dealerWon === true || state.playerBusted === true) {
             update_dealer(state);
         }
@@ -83,9 +87,15 @@ function dealer_new_card() {
 }
 
 function player_new_card() {
-    update_player(game.player_move());
+    if (game.get_player_cards().length < 5) {
+        update_player(game.player_move());
+        if (game.get_game_state().gameEnded !== true) {
             document.getElementById("title").innerHTML = "";
-        document.getElementById("result").innerHTML = "";
+            document.getElementById("result").innerHTML = "";
+        }
+    } else {
+        dealer_finish();
+    }
 }
 
 function dealer_finish() {
@@ -95,7 +105,7 @@ function dealer_finish() {
         while (state.gameEnded !== true) {
             update_dealer(game.dealer_move());
         }
-    }else {
+    } else {
         document.getElementById("title").innerHTML = "MOVE ERROR:";
         document.getElementById("result").innerHTML = "You need 2 cards to do that!";
     }
@@ -151,6 +161,7 @@ function draw_card(card, where) {
 
         default:
             x.setAttribute("src", "images/red_joker.png");
+            x.setAttribute("id", "front");
             break;
     }
     x.setAttribute("width", "100");

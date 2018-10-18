@@ -18,7 +18,8 @@ class BlackJack {
         this.state = {
             'gameEnded': false,
             'dealerWon': false,
-            'playerBusted': false
+            'playerBusted': false,
+            'gameTie': false
         };
 
         //mÃ©todos utilizados no construtor (DEVEM SER IMPLEMENTADOS PELOS ALUNOS)
@@ -116,7 +117,10 @@ class BlackJack {
             this.state.dealerWon = true;
         }else if(dealerP > MAX_POINTS) { //Dealer têm mais de 21 e mais pontos que o PlayerP - Dealer Rebenta
             this.state.gameEnded = true;
-        }else if(this.dealerTurn && dealerP <= MAX_POINTS && dealerP > playerP) {
+        }else if(this.get_dealer_cards().length > 4 && this.get_player_cards().length > 4 && dealerP === playerP) {
+            this.state.gameEnded = true;
+            this.state.tie = true;
+        }else if(this.dealerTurn && dealerP <= MAX_POINTS && dealerP > playerP || this.get_dealer_cards().length > 4) {
             this.state.gameEnded = true;
             this.state.dealerWon = true;
         }

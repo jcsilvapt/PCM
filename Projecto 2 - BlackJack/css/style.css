@@ -87,3 +87,37 @@ header > h1 {
 #result {
     font-size: 3rem;
 }
+
+.flip-card {
+    background-color: transparent;
+    width: 100px;
+    height: 130px;
+    perspective: 1000px;
+}
+
+.flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+}
+
+.flip-card:hover .flip-card-inner {
+    transform: rotateY(180deg);
+}
+.flip-card-front, .flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+}
+.flip-card-front {
+    background-color: black;
+    color:black;
+}
+.flip-card-back {
+    background-color: cyan;
+    transform: rotateY(180deg);
+}
