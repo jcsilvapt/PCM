@@ -127,4 +127,3 @@ class BlackJack {
         return this.state;
     }
 }
-

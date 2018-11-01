@@ -1,0 +1,92 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 31/out/2018, 20:31:32
+    Author     : Jorge
+*/
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #889199;
+    font-family: "Calibri", Arial;
+}
+section, header, footer {
+    display: block;
+}
+a {
+    text-decoration: none;
+}
+img {   
+    width: 100%;
+    height: auto;
+}
+p {
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    padding-top: 0px;
+}
+
+header {
+    width: 1400px;
+    height: 80px;
+    margin-left: 55px;
+}
+
+.container {
+    width: 100%;
+    max-width: 1400px;
+    min-width: 980px;
+    margin-top: 28px;
+    height: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: white;
+    border-radius: 5px;
+    border: 1px solid #c8cacb;
+    box-shadow:  10px 10px 20px #676f77;
+    
+}
+.logoHolder {
+    float: left;
+    width: 300px;
+    height: 80px;
+}
+.logoHolder > p {
+    text-align: center;
+    padding-top: 25px;
+    font-size: 1.2rem;
+    color: #56616a;
+    font-weight: bolder;
+}
+.logo {
+    float: left;
+    width: 80px;
+    height: auto;
+}
+.toOther{
+    width: 100px;
+    height: 25px;
+    float: right;
+    padding-top: 25px;
+}
+
+.toOther > a {
+    font-size: 1.2rem;
+    color: #c8cacb;
+}
+.toOther > a:hover {
+    text-decoration: underline;
+    opacity: .75;
+}
+
+.menu {
+    width: 100%;
+    height: 80px;
+    background-color: #f2f5f8;
+}

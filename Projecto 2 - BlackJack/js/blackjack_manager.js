@@ -43,8 +43,6 @@ function update_win() {
 }
 
 function update_dealer(state) {
-    let cards = game.get_dealer_cards();
-    draw_card(cards[cards.length - 1], "dealerIMG");
     document.getElementById("dealer").innerHTML = "Points: " + game.get_cards_value(game.get_dealer_cards());
     if (state.gameEnded === true) {
         this.update_win();
