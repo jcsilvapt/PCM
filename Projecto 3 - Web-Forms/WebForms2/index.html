@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+        <title>Search Images</title>
+        <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
+        <link rel="stylesheet" href="assets/css/styles.css">
+    </head>
+
+    <body style="background-color: #889199;">
+        <main class="d-block">
+            <div class="container">
+                <header class="header">
+                    <div class="imageHolder" style="margin-left: 25px;"><img src="assets/img/logo.png" class="logo">
+                        <p class="text-truncate flex-wrap" style="margin-top: 25px;float: left;margin-left: 12px;">Search Imaages</p>
+                    </div>
+                    <div class="toOther" style="margin-right: 25px;"><a href="reciever.html" target="_blank">Link</a></div>
+                </header>
+
+                <form>
+                    <div class="tabsHolder">
+                        <div class="content">
+                            <i class="fa fa-check-circle-o step position"></i>
+                            <p class="tabText">Introdução</p>
+                        </div>
+                        <div class="content">
+                            <i class="fa fa-check-circle-o step position"></i>
+                            <p class="tabText">Dados Pessoais</p>
+                        </div>
+                        <div class="content">
+                            <i class="fa fa-check-circle-o step position"></i>
+                            <p class="tabText helper">Tarefas</p>
+                        </div>
+                        <div class="content">
+                            <i class="fa fa-check-circle-o step position"></i>
+                            <p class="tabText helpers">Avaliação Global</p>
+                        </div>
+                    </div>
+                    <div class="tab intro" style="text-align:center;">
+                        <h1>Introdução</h1>
+                        <p>Este questionário destina - se a avaliar a usabilidade do web site. Pedimos - lhe que execute as tarefas abaixo descritas e, preenche ndo este questionário, nos informe acerca das dificuldades que encontrou ao interagir com o sistema e nos dê a sua
+                            opinião acerca da interface e das funcionalidades disponíveis. Obrigada pela sua participação.</p>
+                        <p><b>* Questões de resposta obrigatória.</b></p>
+                        <p><b>** Questão de resposta obrigatória (pelo menos uma preferência)</b></p>
+                    </div>
+                    <div class="tab">
+                        <p class="mobileTitle">Dados Pessoais</p>
+                        <p class="inputText"><legend>Idade *:</legend>
+                        <select name="Idade" required onChange="if (this.value !== 'default')
+                                    document.getElementById('1').className = 'hiddenMsg'">
+                            <option value="default">Seleccionar um...</option>
+                            <option value="menor que 18">18</option>
+                            <option value="18-25">18 - 25</option>
+                            <option value="26-33">26 - 33</option>
+                            <option value="34-40">34 - 40</option>
+                            <option value="Maior que 40">&#62;40</option>
+                        </select>
+                        <span class="hiddenMsg" id="1"> ** Preencher **</span>
+                        </p>
+                        <p class="inputText"><legend>Genero *: <span class="hiddenMsg" id="2"> ** Preencher **</span></legend>
+                        <input type="radio" name="Genero" value="Masculino" required onChange="if (this.value !== 'default')
+                                    document.getElementById('2').className = 'hiddenMsg'"/> Masculino
+                        <input type="radio" name="Genero" value="Feminino" style="margin-left:15px" onChange="if (this.value !== 'default')
+                                    document.getElementById('2').className = 'hiddenMsg'"/> Feminino
+                        </p>    
+                        <p class="inputText"><legend>Com que frequencia usa a Internet :</legend>
+                        <input type="radio" name="Freq-UsarInternet" value="freq-Diariamente"/> Diariamente<br>
+                        <input type="radio" name="Freq-UsarInternet" value="freq-Semanalmente"/> Algumas vezes por semana<br>
+                        <input type="radio" name="Freq-UsarInternet" value="freq-Mensalmente"/> Algumas vezes por mês<br>
+                        <input type="radio" name="Freq-UsarInternet" value="freq-Raramente"/> Raramente<br>
+                        <input type="radio" name="Freq-UsarInternet" value="freq-Nunca"/> Nunca
+                        </p>
+                        <p class="inputText">
+                        <legend>
+                            Indique, por ordem de preferência, os Web browsers que mais utiliza **:
+                        </legend>
+                        <span class="txtDetails">
+                            (Deve indicar 3. Utilize valores de 1 a 3, sendo 1 o mais preferido e 3 o menos.)
+                        </span><br>
+                        Opção 1 >
+                        <select name="Pref-UtilizarBrowser(1)" required onChange="if (this.value !== 'default')
+                                    document.getElementById('3').className = 'hiddenMsg'">
+                            <option value="default">Seleccionar um...</option>
+                            <option value="chrome">Chrome</option>
+                            <option value="firefox">FireFox</option>
+                            <option value="IE">Internet Explorer</option>
+                            <option value="opera">Opera</option>
+                            <option value="safari">Safari</option>
+                        </select><span class="hiddenMsg" id="3"> ** Preencher **</span><br>
+                        Opção 2 >
+                        <select name="Pref-UtilizarBrowser(2)" required onChange="if (this.value !== 'default')
+                                    document.getElementById('4').className = 'hiddenMsg'">
+                            <option value="default">Seleccionar um...</option>
+                            <option value="chrome">Chrome</option>
+                            <option value="firefox">FireFox</option>
+                            <option value="IE">Internet Explorer</option>
+                            <option value="opera">Opera</option>
+                            <option value="safari">Safari</option>
+                        </select><span class="hiddenMsg" id="4"> ** Preencher **</span><br>
+                        Opção 3 >
+                        <select name="Pref-UtilizarBrowser(3)" required onChange="if (this.value !== 'default')
+                                    document.getElementById('5').className = 'hiddenMsg'">
+                            <option value="default">Seleccionar um...</option>
+                            <option value="chrome">Chrome</option>
+                            <option value="firefox">FireFox</option>
+                            <option value="IE">Internet Explorer</option>
+                            <option value="opera">Opera</option>
+                            <option value="safari">Safari</option>
+                        </select><span class="hiddenMsg" id="5"> ** Preencher **</span><br>
+                        </p>
+                        <p class="inputText">
+                        <legend>
+                            Conhece outros websites de pesquisa de imagem?
+                        </legend>
+                        <span class="txtDetails">
+                            (caso sim indique quais)
+                        </span><br>
+                        <input type="radio" name="Outros_Sites" value="nao" onClick="dpShowHide(true)" required/> Não
+                        <input type="radio" name="Outros_Sites" value="sim" style="margin-left:15px;" onClick="dpShowHide(false)"/> Sim
+                        <span style="margin-left: 15px;"><b>Quais?</b></span> <input type="text"  id="dpText" name="Outros_Sites_sim" value="" required="required"/> 
+                        </p>
+                    </div>
+                    <div class="tab">
+                        <p class="mobileTitle">Tarefas</p>
+                        <h3 style="text-align: center;">Por favor, realiza as seguintes tarefas e descreva-nos os resultados obtidos.</h3><br>
+                        <legend style="text-align: center;"><b>Tarefa 1 - Explorar o website</b></legend>
+                        <p style="font-size: 1.2rem;text-align: center;">
+                            Explore o website livremente durante alguns miinutos de modo a ficar mais familiarizado com
+                            as funcionalidades do website.
+                        </p>
+                        <legend>
+                            7 - Indique se encontrou algum erro ou se sentiu alguma dificuldade em perceber as funcionalidades principais do website.
+                        </legend>
+                        <textarea class="inputTextBox" name="Texto-Encontrou-erro" rows="2" cols="150" placeHolder="Opcional..."></textarea>
+                        <br><br>
+                        <legend style="text-align: center;">
+                            <b>Tarefa 2 - Pesquisar Imagens</b>
+                        </legend>
+                        <p style="font-size:1.2rem;text-align: center;">
+                            Escolha a opção de <b>pesquisa por palavra chave</b>, selecione uma categoria à sua escolha e observe os resultados. Repita a pesquisa com outras categorias.
+                        </p>
+                        <legend>
+                            8 - Como classifica os resultados obtidos pela pesquisa por categoria
+                            (1 significa "Maus" e 5 significa "Excelentes")? *
+                        </legend>
+                        <p class="inputText" style="text-align:center;">
+                        <div class="clHolder">
+                            Maus
+                            <div class="classification">
+                                <div class="number">1</div>
+                                <input class="claRadio" type="radio" name="Classificacao-Categoria" value="Mau(1)" required/>
+                            </div>
+                            <div class="classification">
+                                <div class="number">2</div>
+                                <input class="claRadio" type="radio" name="Classificacao-Categoria" value="Insatisfeito(2)"/>
+                            </div>
+                            <div class="classification">
+                                <div class="number">3</div>
+                                <input class="claRadio" type="radio" name="Classificacao-Categoria" value="Satisfeito(3)"/>
+                            </div>
+                            <div class="classification">
+                                <div class="number">4</div>
+                                <input class="claRadio" type="radio" name="Classificacao-Categoria" value="Bom(4)"/>
+                            </div>
+                            <div class="classification">
+                                <div class="number">5</div>
+                                <input class="claRadio" type="radio" name="Classificacao-Categoria" value="Excelente(5)"/>
+                            </div>
+                            Excelentes
+                        </div>
+                        </p>
+                        <legend>9 - Que dificuldades encontrou para realizar a pesquisa e visualizar os resultados?</legend>
+                        <textarea class="inputTextBox" name="Texto-Dificuldades-Categoria" rows="2" cols="150" placeholder="Opcional..."></textarea>
+                        <br><br>
+                        <p style="font-size:1.2rem;text-align: center;">Escolha a opção de <b>pesquisa por cor dominante</b>, selecione uma cor à sua escolha e observe os resultados. Repita a pesquisa com outras cores.</p>
+                        <legend>10 - Como classifica os resultados obtidos pela pesquisa por cor
+                            (1 significa "Maus" e 5 significa "Excelentes")? *</legend>
+                        <p class="inputText" style="text-align:center;">
+                        <div class="clHolder">
+                            Maus
+                            <div class="classification">
+                                <div class="number">1</div>
+                                <input class="claRadio" type="radio" name="Classificacao-Cor" value="Mau(1)" required/>
+                            </div>
+                            <div class="classification">
+                                <div class="number">2</div>
+                                <input class="claRadio" type="radio" name="Classificacao-Cor" value="Insatisfeito(2)"/>
+                            </div>
+                            <div class="classification">
+                                <div class="number">3</div>
+                                <input class="claRadio" type="radio" name="Classificacao-Cor" value="Satisfeito(3)"/>
+                            </div>
+                            <div class="classification">
+                                <div class="number">4</div>
+                                <input class="claRadio" type="radio" name="Classificacao-Cor" value="Bom(4)"/>
+                            </div>
+                            <div class="classification">
+                                <div class="number">5</div>
+                                <input class="claRadio" type="radio" name="Classificacao-Cor" value="Excelente(5)"/>
+                            </div>
+                            Excelentes
+                        </div>
+                        </p>
+                        <legend>11 - Que dificuldades encontrou para realizar a pesquisa e visualizar os resultados?</legend>
+                        <textarea class="inputTextBox" name="Texto-Dificuldades-Cor" rows="2" cols="150" placeholder="Opcional..."></textarea>
+                        <br><br>
+                        <p style="font-size:1.2rem;text-align: center;">Escolha a opção de <b>pesquisa por iimagem semlehante</b>, selecione uma imagem à sua escolha e observe os resultados.</p>
+                        <legend>12 - Como classifica os resultados obtidos pela pesquisa por imagem semelhante
+                            (1 significa "Maus" e 5 significa "Excelentes")? *</legend>
+                        <p class="inputText" style="text-align:center;">
+                        <div class="clHolder">
+                            Maus
+                            <div class="classification">
+                                <div class="number">1</div>
+                                <input class="claRadio" type="radio" name="Classificacao-ImagemSemelhante" value="Mau(1)" required/>
+                            </div>
+                            <div class="classification">
+                                <div class="number">2</div>
+                                <input class="claRadio" type="radio" name="Classificacao-ImagemSemelhante" value="Insatisfeito(2)"/>
+                            </div>
+                            <div class="classification">
+                                <div class="number">3</div>
+                                <input class="claRadio" type="radio" name="Classificacao-ImagemSemelhante" value="Satisfeito(3)"/>
+                            </div>
+                            <div class="classification">
+                                <div class="number">4</div>
+                                <input class="claRadio" type="radio" name="Classificacao-ImagemSemelhante" value="Bom(4)"/>
+                            </div>
+                            <div class="classification">
+                                <div class="number">5</div>
+                                <input class="claRadio" type="radio" name="Classificacao-ImagemSemelhante" value="Excelente(5)"/>
+                            </div>
+                            Excelentes
+                        </div>
+                        </p>
+                        <legend>13 - Como classifica a utilidade da pesquisa por imagem semelhante (1 significa "Maus" e 5 significa "Excelentes")? *</legend>
+                        <p class="inputText" style="text-align:center;">
+                        <div class="clHolder">
+                            Maus
+                            <div class="classification">
+                                <div class="number">1</div>
+                                <input class="claRadio" type="radio" name="Classificacao-ImagemSemelhante" value="Mau(1)" required/>
+                            </div>
+                            <div class="classification">
+                                <div class="number">2</div>
+                                <input class="claRadio" type="radio" name="Classificacao-ImagemSemelhante" value="Insatisfeito(2)"/>
+                            </div>
+                            <div class="classification">
+                                <div class="number">3</div>
+                                <input class="claRadio" type="radio" name="Classificacao-ImagemSemelhante" value="Satisfeito(3)"/>
+                            </div>
+                            <div class="classification">
+                                <div class="number">4</div>
+                                <input class="claRadio" type="radio" name="Classificacao-ImagemSemelhante" value="Bom(4)"/>
+                            </div>
+                            <div class="classification">
+                                <div class="number">5</div>
+                                <input class="claRadio" type="radio" name="Classificacao-ImagemSemelhante" value="Excelente(5)"/>
+                            </div>
+                            Excelentes
+                        </div>
+                        </p>
+                        <br>
+                        <legend>14 - Que dificuldades encontrou para realizar a pesquisa e visualizar os resultados?</legend>
+                        <textarea class="inputTextBox" name="Texto-Dificuldade-ImagemSemelhante" rows="2" cols="150">Opcional...</textarea>
+                        <br>
+                        <legend>15 - Qual o tipo de pesquisa que acha mais adequado?</legend>
+                        <textarea class="inputTextBox" name="Texto-Pesquisa" rows="2" cols="150">Opcional...</textarea>
+                    </div>
+                    <div class="tab">
+                        <p class="mobileTitle">Avaliação Global</p>
+                        <h3 style="text-align: center;">
+                            Por favor, responda às seguintes questões para avaliar a sua experiência de utilização e a usabilidade do website.
+                        </h3>
+                        <legend style="text-align: center;">
+                            <b>Experiência de utilização</b>
+                        </legend>
+                        <br>
+                        <legend>
+                            16 - Para cada par de adjetivos, seleciona a oção que melhor descreve a sua experiência de utilização deste <i>website</i>
+                        </legend>
+                        <p class="inputText" style="text-align:center;">
+                        <div class="clHolder">
+                            Horrível
+                            <div class="classification">
+                                <div class="number">1</div>
+                                <input class="claRadio" type="radio" name="Classificacao-Experiencia(1)" value="1" required/>
+                            </div>
+                            <div class="classification">
+                                <div class="number">2</div>
+                                <input class="claRadio" type="radio" name="Classificacao-Experiencia(1)" value="2"/>
+                            </div>
+                            <div class="classification">
+                                <div class="number">3</div>
+                                <input class="claRadio" type="radio" name="Classificacao-Experiencia(1)" value="3"/>
+                            </div>
+                            <div class="classification">
+                                <div class="number">4</div>
+                                <input class="claRadio" type="radio" name="Classificacao-Experiencia(1)" value="4"/>
+                            </div>
+                            <div class="classification">
+                                <div class="number">5</div>
+                                <input class="claRadio" type="radio" name="Classificacao-Experiencia(1)" value="5"/>
+                            </div>
+                            <div class="classification">
+                                <div class="number">6</div>
+                                <input class="claRadio" type="radio" name="Classificacao-Experiencia(1)" value="6"/>
+                            </div>
+                            <div class="classification">
+                                <div class="number">7</div>
+                                <input class="claRadio" type="radio" name="Classificacao-Experiencia(1)" value="7"/>
+                            </div>
+                            Fantâstica
+                        </div>
+                        </p>
+                        <span class="divider"></span>
+                        <p class="inputText" style="text-align:center;">
+                        <div class="clHolder">
+                            Aborrecida 
+                            <div class="classification">
+                                <div class="number">1</div>
+                                <input class="claRadio" type="radio" name="Classificacao-Experiencia(2)" value="1" required/>
+                            </div>
+                            <div class="classification">
+                                <div class="number">2</div>
+                                <input class="claRadio" type="radio" name="Classificacao-Experiencia(2)" value="2"/>
+                            </div>
+                            <div class="classification">
+                                <div class="number">3</div>
+                                <input class="claRadio" type="radio" name="Classificacao-Experiencia(2)" value="3"/>
+                            </div>
+                            <div class="classification">
+                                <div class="number">4</div>
+                                <input class="claRadio" type="radio" name="Classificacao-Experiencia(2)" value="4"/>
+                            </div>
+                            <div class="classification">
+                                <div class="number">5</div>
+                                <input class="claRadio" type="radio" name="Classificacao-Experiencia(2)" value="5"/>
+                            </div>
+                            <div class="classification">
+                                <div class="number">6</div>
+                                <input class="claRadio" type="radio" name="Classificacao-Experiencia(2)" value="6"/>
+                            </div>
+                            <div class="classification">
+                                <div class="number">7</div>
+                                <input class="claRadio" type="radio" name="Classificacao-Experiencia(2)" value="7"/>
+                            </div>
+                            Estimulante
+                        </div>
+                        </p>
+                        <span class="divider"></span>
+                        <p class="inputText" style="text-align:center;">
+                        <div class="clHolder">
+                            Frustante 
+                            <div class="classification">
+                                <div class="number">1</div>
+                                <input class="claRadio" type="radio" name="Classificacao-Experiencia(3)" value="1" required/>
+                            </div>
+                            <div class="classification">
+                                <div class="number">2</div>
+                                <input class="claRadio" type="radio" name="Classificacao-Experiencia(3)" value="2"/>
+                            </div>
+                            <div class="classification">
+                                <div class="number">3</div>
+                                <input class="claRadio" type="radio" name="Classificacao-Experiencia(3)" value="3"/>
+                            </div>
+                            <div class="classification">
+                                <div class="number">4</div>
+                                <input class="claRadio" type="radio" name="Classificacao-Experiencia(3)" value="4"/>
+                            </div>
+                            <div class="classification">
+                                <div class="number">5</div>
+                                <input class="claRadio" type="radio" name="Classificacao-Experiencia(3)" value="5"/>
+                            </div>
+                            <div class="classification">
+                                <div class="number">6</div>
+                                <input class="claRadio" type="radio" name="Classificacao-Experiencia(3)" value="6"/>
+                            </div>
+                            <div class="classification">
+                                <div class="number">7</div>
+                                <input class="claRadio" type="radio" name="Classificacao-Experiencia(3)" value="7"/>
+                            </div>
+                            Gratificante
+                        </div>
+                        </p>
+                        <span class="divider"></span>
+                        <p class="inputText" style="text-align:center;">
+                        <div class="clHolder">
+                            Difícil 
+                            <div class="classification">
+                                <div class="number">1</div>
+                                <input class="claRadio" type="radio" name="Classificacao-Experiencia(4)" value="1" required/>
+                            </div>
+                            <div class="classification">
+                                <div class="number">2</div>
+                                <input class="claRadio" type="radio" name="Classificacao-Experiencia(4)" value="2"/>
+                            </div>
+                            <div class="classification">
+                                <div class="number">3</div>
+                                <input class="claRadio" type="radio" name="Classificacao-Experiencia(4)" value="3"/>
+                            </div>
+                            <div class="classification">
+                                <div class="number">4</div>
+                                <input class="claRadio" type="radio" name="Classificacao-Experiencia(4)" value="4"/>
+                            </div>
+                            <div class="classification">
+                                <div class="number">5</div>
+                                <input class="claRadio" type="radio" name="Classificacao-Experiencia(4)" value="5"/>
+                            </div>
+                            <div class="classification">
+                                <div class="number">6</div>
+                                <input class="claRadio" type="radio" name="Classificacao-Experiencia(4)" value="6"/>
+                            </div>
+                            <div class="classification">
+                                <div class="number">7</div>
+                                <input class="claRadio" type="radio" name="Classificacao-Experiencia(4)" value="7"/>
+                            </div>
+                            Fácil
+                        </div>
+                        </p>
+                        <span class="divider"></span>
+                        <br><br>
+                        <legend><b>Usabilidade (questões adaptadas do questionário SUS - System Usability Scale)</b></legend>
+                        <legend>17 - Acho que gostaria de utilizar este website com frequência (1 significa "Discorda completamente" e 5 significa "Concorda completamente").*</legend>
+                        <p class="inputText" style="text-align:center;">
+                        <div class="clHolder">
+                            Discorda completamente
+                            <div class="classification">
+                                <div class="number">1</div>
+                                <input class="claRadio" type="radio" name="Classificacao-Frequencia-Utilizacao" value="1" required/>
+                            </div>
+                            <div class="classification">
+                                <div class="number">2</div>
+                                <input class="claRadio" type="radio" name="Classificacao-Frequencia-Utilizacao" value="2"/>
+                            </div>
+                            <div class="classification">
+                                <div class="number">3</div>
+                                <input class="claRadio" type="radio" name="Classificacao-Frequencia-Utilizacao" value="3"/>
+                            </div>
+                            <div class="classification">
+                                <div class="number">4</div>
+                                <input class="claRadio" type="radio" name="Classificacao-Frequencia-Utilizacao" value="4"/>
+                            </div>
+                            <div class="classification">
+                                <div class="number">5</div>
+                                <input class="claRadio" type="radio" name="Classificacao-Frequencia-Utilizacao" value="5"/>
+                            </div>
+                            Concorda completamente
+                        </div>
+                        </p>
+                        <br>
+                        <legend>18 - Considerei o website mais complexo do que necessário. (1 significa “Discorda completamente” e 5 significa “Concorda completamente”).*</legend>
+                        <p class="inputText" style="text-align:center;">
+                        <div class="clHolder">
+                            Discorda completamente
+                            <div class="classification">
+                                <div class="number">1</div>
+                                <input class="claRadio" type="radio" name="Classificacao-Complexidade" value="1" required/>
+                            </div>
+                            <div class="classification">
+                                <div class="number">2</div>
+                                <input class="claRadio" type="radio" name="Classificacao-Complexidade" value="2"/>
+                            </div>
+                            <div class="classification">
+                                <div class="number">3</div>
+                                <input class="claRadio" type="radio" name="Classificacao-Complexidade" value="3"/>
+                            </div>
+                            <div class="classification">
+                                <div class="number">4</div>
+                                <input class="claRadio" type="radio" name="Classificacao-Complexidade" value="4"/>
+                            </div>
+                            <div class="classification">
+                                <div class="number">5</div>
+                                <input class="claRadio" type="radio" name="Classificacao-Complexidade" value="5"/>
+                            </div>
+                            Concorda completamente
+                        </div>
+                        </p>
+                        <br>
+                        <legend>19 - Achei o website fácil de utilizar(1 significa “Discorda completamente” e 5 significa “Concorda completamente”). *</legend>
+                        <p class="inputText" style="text-align:center;">
+                        <div class="clHolder">
+                            Discorda completamente
+                            <div class="classification">
+                                <div class="number">1</div>
+                                <input class="claRadio" type="radio" name="Classificacao-Facil-Utilizacao" value="1" required/>
+                            </div>
+                            <div class="classification">
+                                <div class="number">2</div>
+                                <input class="claRadio" type="radio" name="Classificacao-Facil-Utilizacao" value="2"/>
+                            </div>
+                            <div class="classification">
+                                <div class="number">3</div>
+                                <input class="claRadio" type="radio" name="Classificacao-Facil-Utilizacao" value="3"/>
+                            </div>
+                            <div class="classification">
+                                <div class="number">4</div>
+                                <input class="claRadio" type="radio" name="Classificacao-Facil-Utilizacao" value="4"/>
+                            </div>
+                            <div class="classification">
+                                <div class="number">5</div>
+                                <input class="claRadio" type="radio" name="Classificacao-Facil-Utilizacao" value="5"/>
+                            </div>
+                            Concorda completamente
+                        </div>
+                        </p>
+                        <br>
+                        <legend>20 - Acho que necessitaria de ajuda de um técnico para conseguir utilizar este website (1 significa “Discorda completamente” e 5 significa “Concorda completamente”). *</legend>
+                        <p class="inputText" style="text-align:center;">
+                        <div class="clHolder">
+                            Discorda completamente
+                            <div class="classification">
+                                <div class="number">1</div>
+                                <input class="claRadio" type="radio" name="Classificacao-Ajuda-Utilizacao" value="1" required/>
+                            </div>
+                            <div class="classification">
+                                <div class="number">2</div>
+                                <input class="claRadio" type="radio" name="Classificacao-Ajuda-Utilizacao" value="2"/>
+                            </div>
+                            <div class="classification">
+                                <div class="number">3</div>
+                                <input class="claRadio" type="radio" name="Classificacao-Ajuda-Utilizacao" value="3"/>
+                            </div>
+                            <div class="classification">
+                                <div class="number">4</div>
+                                <input class="claRadio" type="radio" name="Classificacao-Ajuda-Utilizacao" value="4"/>
+                            </div>
+                            <div class="classification">
+                                <div class="number">5</div>
+                                <input class="claRadio" type="radio" name="Classificacao-Ajuda-Utilizacao" value="5"/>
+                            </div>
+                            Concorda completamente
+                        </div>
+                        </p>
+                        <br>
+                        <legend>21 - Considerei que as várias funcionalidades deste website estavam bem integradas (1 significa “Discorda completamente” e 5 significa “Concorda completamente”). *</legend>
+                        <p class="inputText" style="text-align:center;">
+                        <div class="clHolder">
+                            Discorda completamente
+                            <div class="classification">
+                                <div class="number">1</div>
+                                <input class="claRadio" type="radio" name="Classificacao-Funcionalidades" value="1" required/>
+                            </div>
+                            <div class="classification">
+                                <div class="number">2</div>
+                                <input class="claRadio" type="radio" name="Classificacao-Funcionalidades" value="2"/>
+                            </div>
+                            <div class="classification">
+                                <div class="number">3</div>
+                                <input class="claRadio" type="radio" name="Classificacao-Funcionalidades" value="3"/>
+                            </div>
+                            <div class="classification">
+                                <div class="number">4</div>
+                                <input class="claRadio" type="radio" name="Classificacao-Funcionalidades" value="4"/>
+                            </div>
+                            <div class="classification">
+                                <div class="number">5</div>
+                                <input class="claRadio" type="radio" name="Classificacao-Funcionalidades" value="5"/>
+                            </div>
+                            Concorda completamente
+                        </div>
+                        </p>
+                        <br>
+                        <legend>22 - Achei que este website tinha muitas inconsistências (1 significa “Discorda completamente” e 5 significa “Concorda completamente”). *</legend>
+                        <p class="inputText" style="text-align:center;">
+                        <div class="clHolder">
+                            Discorda completamente
+                            <div class="classification">
+                                <div class="number">1</div>
+                                <input class="claRadio" type="radio" name="Classificacao-Inconsistencia" value="1" required/>
+                            </div>
+                            <div class="classification">
+                                <div class="number">2</div>
+                                <input class="claRadio" type="radio" name="Classificacao-Inconsistencia" value="2"/>
+                            </div>
+                            <div class="classification">
+                                <div class="number">3</div>
+                                <input class="claRadio" type="radio" name="Classificacao-Inconsistencia" value="3"/>
+                            </div>
+                            <div class="classification">
+                                <div class="number">4</div>
+                                <input class="claRadio" type="radio" name="Classificacao-Inconsistencia" value="4"/>
+                            </div>
+                            <div class="classification">
+                                <div class="number">5</div>
+                                <input class="claRadio" type="radio" name="Classificacao-Inconsistencia" value="5"/>
+                            </div>
+                            Concorda completamente
+                        </div>
+                        </p>
+                        <br>
+                        <legend>23 - Suponho que a maioria das pessoas aprenderia a utilizar rapidamente este website (1 significa “Discorda completamente” e 5 significa “Concorda completamente”). *</legend>
+                        <p class="inputText" style="text-align:center;">
+                        <div class="clHolder">
+                            Discorda completamente
+                            <div class="classification">
+                                <div class="number">1</div>
+                                <input class="claRadio" type="radio" name="Classificacao-Recomenda" value="1" required/>
+                            </div>
+                            <div class="classification">
+                                <div class="number">2</div>
+                                <input class="claRadio" type="radio" name="Classificacao-Recomenda" value="2"/>
+                            </div>
+                            <div class="classification">
+                                <div class="number">3</div>
+                                <input class="claRadio" type="radio" name="Classificacao-Recomenda" value="3"/>
+                            </div>
+                            <div class="classification">
+                                <div class="number">4</div>
+                                <input class="claRadio" type="radio" name="Classificacao-Recomenda" value="4"/>
+                            </div>
+                            <div class="classification">
+                                <div class="number">5</div>
+                                <input class="claRadio" type="radio" name="Classificacao-Recomenda" value="5"/>
+                            </div>
+                            Concorda completamente
+                        </div>
+                        </p>
+                        <br>
+                        <legend>24 - Considerei o website muito complicado de utilizar (1 significa “Discorda completamente” e 5 significa “Concorda completamente”). *</legend>
+                        <p class="inputText" style="text-align:center;">
+                        <div class="clHolder">
+                            Discorda completamente
+                            <div class="classification">
+                                <div class="number">1</div>
+                                <input class="claRadio" type="radio" name="Classificacao-Dificil-Utilizacao" value="1" required/>
+                            </div>
+                            <div class="classification">
+                                <div class="number">2</div>
+                                <input class="claRadio" type="radio" name="Classificacao-Dificil-Utilizacao" value="2"/>
+                            </div>
+                            <div class="classification">
+                                <div class="number">3</div>
+                                <input class="claRadio" type="radio" name="Classificacao-Dificil-Utilizacao" value="3"/>
+                            </div>
+                            <div class="classification">
+                                <div class="number">4</div>
+                                <input class="claRadio" type="radio" name="Classificacao-Dificil-Utilizacao" value="4"/>
+                            </div>
+                            <div class="classification">
+                                <div class="number">5</div>
+                                <input class="claRadio" type="radio" name="Classificacao-Dificil-Utilizacao" value="5"/>
+                            </div>
+                            Concorda completamente
+                        </div>
+                        </p>
+                        <br>
+                        <legend>25 - Senti-me muito confiante a utilizar este website (1 significa “Discorda completamente” e 5 significa “Concorda completamente”). *</legend>
+                        <p class="inputText" style="text-align:center;">
+                        <div class="clHolder">
+                            Discorda completamente
+                            <div class="classification">
+                                <div class="number">1</div>
+                                <input class="claRadio" type="radio" name="Classificacao-Confianca" value="1" required/>
+                            </div>
+                            <div class="classification">
+                                <div class="number">2</div>
+                                <input class="claRadio" type="radio" name="Classificacao-Confianca" value="2"/>
+                            </div>
+                            <div class="classification">
+                                <div class="number">3</div>
+                                <input class="claRadio" type="radio" name="Classificacao-Confianca" value="3"/>
+                            </div>
+                            <div class="classification">
+                                <div class="number">4</div>
+                                <input class="claRadio" type="radio" name="Classificacao-Confianca" value="4"/>
+                            </div>
+                            <div class="classification">
+                                <div class="number">5</div>
+                                <input class="claRadio" type="radio" name="Classificacao-Confianca" value="5"/>
+                            </div>
+                            Concorda completamente
+                        </div>
+                        </p>
+                        <br>
+                        <legend>26 - Tive que aprender muito antes de conseguir lidar com este website (1 significa “Discorda completamente” e 5 significa “Concorda completamente”). *</legend>
+                        <p class="inputText" style="text-align:center;">
+                        <div class="clHolder">
+                            Discorda completamente
+                            <div class="classification">
+                                <div class="number">1</div>
+                                <input class="claRadio" type="radio" name="Classificacao-Aprendizagem" value="1" required/>
+                            </div>
+                            <div class="classification">
+                                <div class="number">2</div>
+                                <input class="claRadio" type="radio" name="Classificacao-Aprendizagem" value="2"/>
+                            </div>
+                            <div class="classification">
+                                <div class="number">3</div>
+                                <input class="claRadio" type="radio" name="Classificacao-Aprendizagem" value="3"/>
+                            </div>
+                            <div class="classification">
+                                <div class="number">4</div>
+                                <input class="claRadio" type="radio" name="Classificacao-Aprendizagem" value="4"/>
+                            </div>
+                            <div class="classification">
+                                <div class="number">5</div>
+                                <input class="claRadio" type="radio" name="Classificacao-Aprendizagem" value="5"/>
+                            </div>
+                            Concorda completamente
+                        </div>
+                        </p>
+                        <br>
+
+                    </div>
+                    <div class="tab">
+                        <h3 style="text-align: center;">
+                            Obrigado por ter respondido a todas as questões!<br>
+                            Ver Respostas!
+                        </h3>
+                    </div>
+                    <div class="d-inline" style="float: left;width: 100%;background-color: white;padding-right: 15px;border-bottom-left-radius: 5px;padding-bottom: 5px;border-bottom-right-radius: 5px;z-index: 1000;box-shadow: 10px 10px 20px #676f77;">
+                        <div style="float:right;">
+                            <button type="button" id="prevBtn" onclick="change(-1)">Voltar</button>
+                            <button type="button" id="nextBtn" onclick="change(1)">Seguinte</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </main>
+        <script src="assets/js/jquery.min.js"></script>
+        <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+        <script src="assets/js/manager.js"></script>
+    </body>
+
+</html>

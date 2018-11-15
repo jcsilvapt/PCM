@@ -1,0 +1,288 @@
+article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
+}
+
+.container {
+    width: 95%;
+    max-width: 1400px;
+    min-width: 320px;
+    margin-top: 28px;
+    height: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: white;
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+    boder: 1px solid #c8cacb;
+    box-shadow: 10px 10px 20px #676f77;
+    /*margin: 0;*/
+    padding: 0;
+}
+form {
+    background-color: rgba(105,123,139,0.12);
+    border-radius: 0;
+}
+.header {
+    /*width: 1100px;*/
+    height: 80px;
+}
+
+.imageHolder {
+    float: left;
+    width: 208px;
+    height: 80px;
+}
+
+.logo {
+    float: left;
+    width: 80px;
+    height: auto;
+}
+
+.toOther {
+    width: 35px;
+    float: right;
+    padding-top: 25px;
+}
+
+.toOhher > a {
+    float: left;
+    font-size: 1.2rem;
+    color: #c8cacb;
+}
+
+.inform {
+    height: 62px;
+    background-color: #e6ebf1;
+}
+
+.content {
+    width: 100%;
+    max-width: 185px;
+    background-color: rgb(255,255,255);
+    float: left;
+    min-width: 20px;
+    height: 60px;
+    border: 1px solid #f1f4f6;
+}
+
+.step {
+    color: #bbb;
+    display: inline-block;
+    opacity: 0.2;
+}
+
+.tab {
+    display: none;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    float: left;
+    padding-left: 25px;
+    padding-top: 10px;
+    box-shadow: 10px 10px 20px #676f77;
+}
+
+s {
+    margin-top: 0;
+    margin-left: 25px;
+    display: inline-block;
+    margin-bottom: 1rem;
+}
+
+.inputText {
+    width: 100%;
+    float: left;
+    display: inline-block;
+    margin-left: 25px;
+    font-size: 1.1rem;
+}
+
+button {
+    background-color: #4CAF50;
+    color: #FFF;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    /*font-family: Raleway;*/
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    opacity: .4;
+}
+
+#prevBtn {
+    background-color: #bbbbbb;
+}
+
+.tab.intro {
+    text-align: center;
+    padding-top: 15px;
+    text-size-adjust: 15px;
+}
+
+.active {
+    opacity: 0.5;
+    color: #1789dc;
+    transition: 1s;
+}
+
+.finish {
+    opacity: .9;
+    color: #1cba35;
+    transition: 1s;
+}
+
+.txtDetails {
+    font-size: 15px;
+    float: left;
+}
+
+.hiddenMsg {
+    width: 100%;
+    /*float: left;*/
+    font-size: 18px;
+    color: red;
+    /*visibility: hidden;*/
+    display: none;
+    margin-bottom: 15px;
+}
+
+.show {
+    display: inline;
+}
+
+.inputTextBox {
+    width: 95%;
+}
+
+.clHolder {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+.classification {
+    /*width: 80%;*/
+    max-width: 50px;
+    min-width: 20px;
+    height: 100%;
+    display: inline-block;
+}
+
+.divider {
+    width: 50%;
+    height: 1px;
+    background-color: grey;
+    display: inline;
+    float: left;
+    margin-left: 25%;
+    /*margin-right: auto;*/
+}
+
+.tabsHolder {
+    text-align: center;
+    width: 100%;
+    max-width: 729px;
+    height: 60px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+@media (max-width: 583px) {
+    .inputText {
+        max-width: 400px;
+    }
+    .tab {
+        width: 100%;
+        max-width: 583px;
+        padding-left: 5px;
+    }
+    .mobileTitle {
+        text-align: center;
+        size: 18px;
+        font-weight: bold;
+    }
+    p {
+        size: 12px;
+        word-wrap: break-word;
+    }
+    .tabText {
+        display: none;
+    }
+    .content{
+        height: 30px;
+        width: 40px;
+    }
+    .tabsHolder {
+        width: 100%;
+        max-width: 160px;
+        height: 30px;
+        background-color: cyan;
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+@media (min-width: 584px) {
+    .mobileTitle {
+        display: none;
+    }
+    .position {
+        width: 100%;
+    }
+    .tabText {
+        text-align: center;
+    }
+    .tabsHolder {
+        width: 100%;
+        max-width: 500px;
+    }
+    .content {
+        width: 125px;
+        background-color: rgb(255,255,255);
+        float: left;
+        min-width: 20px;
+        border: 1px solid #f1f4f6;
+    }
+}
+
+@media (min-width: 768px) {
+    .position {
+        margin-top: 15px;
+        float: left;
+        margin-left: 15px;
+        font-size: 30px;
+        width: 32px;
+    }
+    .tabText {
+        margin-top: 19px;
+        float: right;
+        margin-right: 15px;
+        word-wrap: inherit;
+    }
+    .tabsHolder {
+        text-align: center;
+        width: 100%;
+        max-width: 768px;
+        margin-right: auto;
+        margin-left: auto;
+    }
+    .content {
+        width: 100%;
+        max-width: 182px;
+        background-color: rgb(255,255,255);
+        float: left;
+        min-width: 20px;
+        border: 1px solid #f1f4f6;
+    }
+    .helper {
+        margin-right: 45px;
+    }
+    .helpers {
+        margin-right: 10px;
+    }
+}

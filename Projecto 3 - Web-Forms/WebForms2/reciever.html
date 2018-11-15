@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Test</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <script type="text/javascript">
+            function loadStorage() {
+                let todo_index = window.localStorage.length;
+                for (i = 0; i < todo_index; i++) {
+                    let localStorageRow = window.localStorage.getItem(window.localStorage.key(i));
+                    if (window.DOMParser) {
+                        var parser = new DOMParser();
+                        var doc = parser.parseFromString(localStorageRow, "application/xml");
+                    }
+                    let x = doc.getElementsByTagName("q");
+                    document.write("<p>Respostas dadas no Questionário: Utilizador: " + (i + 1) + "</p>")
+                    for (y = 0; y < x.length; y++) {
+                        let id = x[y]
+                        document.write("<p>" + x[y].id + ": " + x[y].textContent + "</p>");
+                    }
+
+                }
+
+            }
+            window.onload = loadStorage;
+        </script>
+    </head>
+    <body>
+
+    </body>
+</html>
