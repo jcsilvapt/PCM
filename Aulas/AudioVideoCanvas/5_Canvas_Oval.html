@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title> Canvas - Desenhar Círculos e Elipses </title>
+</head>
+
+<body>
+<canvas id="myCanvas" width="400" height="300" style="border:1px solid #000000;"></canvas>
+<script>
+    let c = document.getElementById("myCanvas");
+    let ctx = c.getContext("2d");
+
+    ctx.save();
+    ctx.translate(150,150);
+    ctx.scale(2,1);
+    ctx.fillStyle = "green";
+    ctx.beginPath();
+    ctx.arc(0, 0, 40, 0, 2*Math.PI,true);
+    ctx.closePath();
+    ctx.fill();
+    ctx.restore();
+</script>
+
+</body>
+</html>

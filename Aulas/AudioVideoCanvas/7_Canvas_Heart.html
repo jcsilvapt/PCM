@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<canvas id="myCanvas" width="400" height="300" style="border:1px solid #000000;"></canvas>
+<script>
+    let c = document.getElementById("myCanvas");
+    let ctx = c.getContext("2d");
+
+    function Heart(x,y,w,c) {
+        let h = w * 0.7;
+        let drx = w/4;
+        let ang = .25 * Math.PI;
+        let leftctrx = x - drx;
+        let rightctrx = x + drx;
+        let cx = rightctrx + drx * Math.cos(ang);
+        let cy = y + drx * Math.sin(ang);
+
+        ctx.fillStyle = c;
+        ctx.beginPath();
+        ctx.moveTo(x, y);
+        ctx.arc(leftctrx, y, drx, 0, Math.PI - ang, true);
+        //ctx.arc(leftctrx, y, drx, Math.PI - ang, 2*Math.PI);
+        ctx.lineTo(x, y + h);
+        ctx.lineTo(cx, cy);
+        ctx.arc(rightctrx, y, drx, ang, Math.PI, true);
+        //ctx.arc(rightctrx, y, drx, Math.PI, 2*Math.PI+ang);
+        ctx.closePath();
+        ctx.fill();
+    }
+    Heart(100,100,400,"pink");
+</script>
+</body>
+</html>
