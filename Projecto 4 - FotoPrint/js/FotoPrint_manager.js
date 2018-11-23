@@ -4,7 +4,9 @@ let app = null;
 
 function main() {
     let cnv = document.getElementById('canvas');
-
+    var ctx = cnv.getContext("2d");
+    ctx.canvas.width = window.innerWidth-1;
+    ctx.canvas.height = window.innerHeight-125;
     drawCanvasRect(cnv);
     app = new FotoPrint();
     app.init();
@@ -133,4 +135,14 @@ function getMouseCoord(el) {
         el = el.offsetParent;
     }
     return [xPos,yPos];
+}
+
+function drawText(textToInsert) {
+    let cnv = document.getElementById('canvas');
+    let ctx = cnv.getContext("2d");
+    console.log(textToInsert);
+    ctx.font = "30px Calibri";
+    ctx.fillText(textToInsert, window.innerWidth/2, window.innerWidth/2);
+
+
 }

@@ -218,63 +218,168 @@ class Bear extends DrawingObjects
 
     draw (cnv) {
         let ctx = cnv.getContext("2d");
+
+        ctx.fillStyle = this.color;
+
+        ctx.beginPath();
+        ctx.fillRect(this.posx, this.posy, this.width, this.height);
+        ctx.closePath();
+
+        ctx.beginPath();
+        ctx.fillStyle = "white";
+        ctx.arc(this.posx+(this.width*0.25),this.posy+(this.height*0.3), this.width/8, 0, 2 * Math.PI);
+        ctx.fill();
+        ctx.closePath();
+
+        ctx.beginPath();
+        ctx.arc(this.posx+(this.width*0.75),this.posy+(this.height*0.3), this.width/8, 0, 2 * Math.PI);
+        ctx.fill();
+        ctx.closePath();
+
+        ctx.beginPath();
+        ctx.fillStyle = "black";
+        ctx.arc(this.posx+(this.width*0.75),this.posy+(this.height*0.3), this.width/15, 0, 2 * Math.PI);
+        ctx.fill();
+        ctx.closePath();
+
+        ctx.beginPath();
+        ctx.fillStyle = "black";
+        ctx.arc(this.posx+(this.width*0.25),this.posy+(this.height*0.3), this.width/15, 0, 2 * Math.PI);
+        ctx.fill();
+        ctx.closePath();
+
+        ctx.beginPath();
+        ctx.fillStyle = "white";
+        ctx.arc(this.posx+(this.width/2), this.posy+(this.height/2)+10, this.width/3, 0, 2 * Math.PI);
+        ctx.fill();
+        ctx.closePath();
+
+        ctx.beginPath();
+        ctx.fillStyle = this.color;
+        ctx.arc(this.posx+(this.width*0.35), this.posy+(this.height*0.5), this.width/15, 0, 2 * Math.PI);
+        ctx.fill();
+        ctx.closePath();
+
+        ctx.beginPath();
+        ctx.fillStyle = "white";
+        ctx.arc(this.posx+(this.width*0.37), this.posy+(this.height*0.53), this.width/50, 0, 2 * Math.PI);
+        ctx.fill();
+        ctx.closePath();
+
+        ctx.beginPath();
+        ctx.fillStyle = this.color;
+        ctx.arc(this.posx+(this.width*0.65), this.posy+(this.height*0.5), this.width/15, 0, 2 * Math.PI);
+        ctx.fill();
+        ctx.closePath();
+
+        ctx.save();
+        ctx.beginPath();
+        ctx.fillStyle = "white";
+        ctx.arc(this.posx+(this.width*0.63), this.posy+(this.height*0.53), this.width/50, 0, 2 * Math.PI);
+        ctx.fill();
+        ctx.closePath();
+
+        ctx.restore();
+        ctx.save();
+        ctx.beginPath();
+        ctx.fillStyle = "black";
+        ctx.translate(this.posx+(this.width/2),this.posy+(this.height/1.6));
+        ctx.scale(2,1);
+        ctx.arc(0,0,this.width/15,0,2*Math.PI, true);
+        ctx.fill();
+        ctx.scale(1,2);
+        ctx.closePath();
+        ctx.restore();
+
+        ctx.beginPath();
+        ctx.fillStyle = "white";
+        ctx.arc(this.posx+(this.width*0.4),this.posy+(this.height/2)+20, this.width/50, 0, 2 * Math.PI);
+        ctx.fill();
+        ctx.closePath();
+
+        ctx.beginPath();
+        ctx.fillStyle = "black";
+        ctx.arc(this.posx+(this.width*0.42),this.posy+(this.height*0.68),this.width/12,0,Math.PI);
+        ctx.stroke();
+        ctx.closePath();
+
+
+        ctx.beginPath();
+        ctx.fillStyle = "black";
+        ctx.arc(this.posx+(this.width*0.58),this.posy+(this.height*0.68),this.width/12,0,Math.PI);
+        ctx.stroke();
+        ctx.closePath();
+
+
+
+        /*ctx.save();
         ctx.beginPath();
         ctx.fillStyle = this.color;
         ctx.fillRect(this.posx, this.posy, this.width, this.height);
         ctx.fill();
         ctx.closePath();
         
+        ctx.restore();
 
-        
+        ctx.save();
         ctx.beginPath();
         ctx.fillStyle = "white";
         ctx.arc(this.posx+50,this.posy+60, ((this.width)/3.5)/2, 0, 2 * Math.PI);
         ctx.fill();
         ctx.closePath();
-        
+
+        ctx.save();
         ctx.beginPath();
         ctx.arc(this.posx+150,this.posy+60, ((this.width)/3.5)/2, 0, 2 * Math.PI);
         ctx.fill();
         ctx.closePath();
-        
+
+        ctx.save();
         ctx.beginPath();
         ctx.fillStyle = "black";
         ctx.arc(this.posx+50,this.posy+60, 15, 0, 2 * Math.PI);
         ctx.fill();
         ctx.closePath();
-        
+
+        ctx.save();
         ctx.beginPath();
         ctx.arc(this.posx+150,this.posy+60, 15,0 , 2 * Math.PI);
         ctx.fill();
         ctx.closePath();
-        
+
+        ctx.save();
         ctx.beginPath();
         ctx.fillStyle = "white";
         ctx.arc(this.posx+(this.width/2),this.posy+(this.width/2),(this.width)/3.5,0,2 * Math.PI);
         ctx.fill();
         ctx.closePath();
-        
+
+        ctx.save();
         ctx.beginPath();
         ctx.fillStyle = "black";
         ctx.arc(this.posx+85, this.posy+85, 12, 0 , 2* Math.PI);
         ctx.fill();
         ctx.closePath();
-        
+
+        ctx.save();
         ctx.beginPath();
         ctx.arc(this.posx+120, this.posy+85, 12, 0 , 2* Math.PI);
         ctx.fill();
         ctx.closePath();
-        
+
+        ctx.save();
         ctx.beginPath();
         ctx.fillStyle = "white";
         ctx.arc(this.posx+88, this.posy+90, 5, 0 , 2* Math.PI);
         ctx.fill();
         ctx.closePath();
-        
+
+        ctx.save();
         ctx.beginPath();
         ctx.arc(this.posx+116, this.posy+90, 5, 0 , 2* Math.PI);
         ctx.fill();
         ctx.closePath();
+
 
         ctx.beginPath();
         ctx.arc(this.posx+116, this.posy+115, 5,0,2*Math.PI);
@@ -285,7 +390,7 @@ class Bear extends DrawingObjects
         ctx.beginPath();
         ctx.fillStyle = "black";
         ctx.translate(this.posx+102,this.posy+110);
-        ctx.scale(2,1);1
+        ctx.scale(2,1);
         ctx.arc(0,0,13,0,2*Math.PI, true);
         ctx.fill();
         ctx.scale(1,2);
@@ -308,26 +413,75 @@ class Bear extends DrawingObjects
         ctx.arc(9,2,10,0,Math.PI);
         ctx.stroke();
         ctx.closePath();
-        ctx.restore();
+        ctx.restore();*/
     }
 }
 
 class Ghost extends DrawingObjects
 {
-    constructor () {
-        super(px, py, width, height 'G');
-        super(px,py, color);
+    constructor (px, py, width, height, color) {
+        super(px,py, "G");
+        this.width = width;
+        this.height = height;
+        this.color = color;
 
     }
 
     mouseOver (mx, my) {
-
+        return ((mx >= this.posx) && (mx <= (this.posx + this.width)) && (my >= this.posy) && (my <= (this.posy + this.height)));
     }
 
     draw (cnv) {
         let ctx = cnv.getContext("2d");
 
+        ctx.width = this.width;
+        ctx.height = this.height;
 
+        ctx.fillStyle = this.color;
+        ctx.save()
+        ctx.beginPath();
+        ctx.moveTo(this.posx+(this.height*0.2), this.posy);
+        ctx.bezierCurveTo(this.posx+(this.height*0.2),this.posy-(this.height*0.2), this.posx+this.width,this.posy-(this.height*0.2), this.posx+this.width, this.posy);
+        ctx.moveTo(this.posx+(this.height*0.2),this.posy);
+        ctx.lineTo((this.posx+(this.height*0.2)),this.posy+(this.height*0.4));
+        ctx.lineTo((this.posx+(this.height*0.2))+(this.width*0.8),this.posy+(this.height*0.4));
+        ctx.lineTo((this.posx+(this.height*0.2))+(this.width*0.8),this.posy);
+        ctx.moveTo((this.posx+(this.height*0.2)), this.posy+(this.height*0.4));
+        ctx.lineTo((this.posx+(this.height*0.2)),(this.posy+(this.height*0.55)));
+        ctx.lineTo((this.posx+(this.height*0.2))+this.width*0.1,this.posy+(this.height*0.4));
+        ctx.lineTo((this.posx+(this.height*0.2))+this.width*0.2,this.posy+(this.height*0.55));
+        ctx.lineTo((this.posx+(this.height*0.2))+this.width*0.3,this.posy+(this.height*0.4));
+        ctx.lineTo((this.posx+(this.height*0.2))+this.width*0.4,this.posy+(this.height*0.55));
+        ctx.lineTo((this.posx+(this.height*0.2))+this.width*0.5,this.posy+(this.height*0.4));
+        ctx.lineTo((this.posx+(this.height*0.2))+this.width*0.6,this.posy+(this.height*0.55));
+        ctx.lineTo((this.posx+(this.height*0.2))+this.width*0.7,this.posy+(this.height*0.4));
+        ctx.lineTo((this.posx+(this.height*0.2))+this.width*0.8,this.posy+(this.height*0.55));
+        ctx.lineTo((this.posx+(this.height*0.2))+this.width*0.8,this.posy+(this.height*0.4));
+        ctx.fill();
+        ctx.closePath();
+
+        /* Olhos - Inicio*/
+        ctx.beginPath();
+        ctx.fillStyle = "white";
+        ctx.arc(this.posx+(this.width*0.42), this.posy+(this.height*0.12), this.width/12, 0, 2 * Math.PI);
+        ctx.fill();
+        ctx.closePath();
+
+        ctx.beginPath();
+        ctx.arc(this.posx+(this.width*0.78), this.posy+(this.height*0.12), this.width/12, 0, 2 * Math.PI);
+        ctx.fill();
+        ctx.closePath();
+
+        ctx.beginPath();
+        ctx.fillStyle = "black";
+        ctx.arc(this.posx+(this.width*0.38), this.posy+(this.height*0.15), this.width/30, 0, 2 * Math.PI);
+        ctx.fill();
+        ctx.closePath();
+
+        ctx.beginPath();
+        ctx.arc(this.posx+(this.width*0.74), this.posy+(this.height*0.15), this.width/30, 0, 2 * Math.PI);
+        ctx.fill();
+        ctx.closePath();
     }
 }
 

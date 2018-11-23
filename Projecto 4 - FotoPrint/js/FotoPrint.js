@@ -10,20 +10,23 @@ class FotoPrint
     }
 
     init() {
-//        let r = new Rect(100, 100, 20, 20, "red");
-//        this.shpinDrawing.insert(r);
-//
-//        let o = new Oval(150, 150, 50, 1, 1, "blue");
-//        this.shpinDrawing.insert(o);
-//
-//        let h = new Heart(250, 250, 80, "pink");
-//        this.shpinDrawing.insert(h);
-//
-//        let dad = new Picture(200, 200, 70, 70, "imgs/allison1.jpg");
-//        this.shpinDrawing.insert(dad);
-        
+        let r = new Rect(100, 100, 20, 20, "red");
+        this.shpinDrawing.insert(r);
+
+        let o = new Oval(150, 150, 50, 1, 1, "blue");
+        this.shpinDrawing.insert(o);
+
+        let h = new Heart(250, 250, 80, "pink");
+        this.shpinDrawing.insert(h);
+
+        let dad = new Picture(200, 200, 70, 70, "imgs/allison1.jpg");
+        this.shpinDrawing.insert(dad);
+
         let bear = new Bear(200,100,200,200, "black");
         this.shpinDrawing.insert(bear);
+
+        let ghost = new Ghost(200,100,200,200, "black");
+        this.shpinDrawing.insert(ghost);
     }
 
     drawObj(cnv) {
@@ -90,6 +93,12 @@ class FotoPrint
 
             case "H":
                 item = new Heart(obj.posx + 20, obj.posy + 20, obj.drx * 4, obj.color);
+                break;
+            case "B":
+                item = new Bear(obj.posx + 20, obj.posy + 20, obj.width, obj.height, obj.color);
+                break;
+            case "G":
+                item = new Ghost(obj.posx + 20, obj.posy + 20, obj.width, obj.height, obj.color);
                 break;
             default: throw new TypeError("Can not clone this type of object");
         }
