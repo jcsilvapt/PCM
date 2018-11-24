@@ -10,9 +10,8 @@ class FotoPrint
     }
 
     init() {
-        let r = new Rect(100, 100, 20, 20, "red");
+/*        let r = new Rect(100, 100, 20, 20, "red");
         this.shpinDrawing.insert(r);
-
         let o = new Oval(150, 150, 50, 1, 1, "blue");
         this.shpinDrawing.insert(o);
 
@@ -27,6 +26,9 @@ class FotoPrint
 
         let ghost = new Ghost(200,100,200,200, "black");
         this.shpinDrawing.insert(ghost);
+
+        let text = new insertText(200,100, 24, "black", "ola");
+        this.shpinDrawing.insert(text);*/
     }
 
     drawObj(cnv) {
@@ -100,9 +102,16 @@ class FotoPrint
             case "G":
                 item = new Ghost(obj.posx + 20, obj.posy + 20, obj.width, obj.height, obj.color);
                 break;
+            case "T":
+                item = new insertText(obj.posx + 20, obj.posy + 20, obj.textSize, obj.color, obj.textValue);
+                break;
             default: throw new TypeError("Can not clone this type of object");
         }
         return item;
+    }
+
+    insertOnPoll(obj) {
+        this.shpinDrawing.insert(obj);
     }
 }
 
@@ -131,4 +140,3 @@ class Pool
         }
     }
 }
-

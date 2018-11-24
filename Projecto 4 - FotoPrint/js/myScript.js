@@ -16,12 +16,3 @@ function shrinkTxt(path) {
 
     }
 }
-
-function writeText(path) {
-    if(path.value != "") {
-        drawText(path.value);
-    }else {
-        alert("Erro :'(");
-    }
-
-}

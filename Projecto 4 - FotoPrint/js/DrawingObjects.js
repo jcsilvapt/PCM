@@ -42,6 +42,31 @@ class DrawingObjects
     }
 }
 
+class insertText extends DrawingObjects {
+    constructor (px, py, pixeis, color, textValue) {
+        super(px, py, "T");
+        this.textSize = pixeis;
+        this.color = color;
+        this.textValue = textValue;
+        this.size = null;
+    }
+
+    draw (cnv) {
+        let ctx = cnv.getContext("2d");
+        ctx.font = this.textSize+'px Calibri';
+        this.size = ctx.measureText(this.textValue);
+        ctx.fillStyle = this.color;
+        ctx.font = this.textSize+'px Calibri';
+        ctx.fillText(this.textValue, this.posx, this.posy);
+
+        ctx.fill();
+    }
+
+    mouseOver(mx, my) {
+        return ((mx >= this.posx) && (mx <= (this.posx + this.size.width)) && (my <= this.posy) && (my >= (this.posy - this.textSize)));
+    }
+}
+
 class Rect extends DrawingObjects
 {
 

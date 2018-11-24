@@ -1,18 +1,21 @@
 'use strict';
 
-let app = null;
+var app = null;
+var ctx = null;
+var cnv = null;
 
 function main() {
-    let cnv = document.getElementById('canvas');
-    var ctx = cnv.getContext("2d");
-    ctx.canvas.width = window.innerWidth-1;
-    ctx.canvas.height = window.innerHeight-125;
+    cnv = document.getElementById('canvas');
+    ctx = cnv.getContext("2d");
+    ctx.canvas.width = window.innerWidth-2;
+    ctx.canvas.height = window.innerHeight-160;
     drawCanvasRect(cnv);
     app = new FotoPrint();
     app.init();
     app.drawObj(cnv);
     cnv.addEventListener('mousedown', drag, false);
     cnv.addEventListener('dblclick', makenewitem, false);
+    loadInitImg();
 }
 
 function drawCanvasRect(cnv) {
@@ -134,15 +137,51 @@ function getMouseCoord(el) {
 
         el = el.offsetParent;
     }
-    return [xPos,yPos];
+    return [xPos, yPos];
 }
 
-function drawText(textToInsert) {
-    let cnv = document.getElementById('canvas');
-    let ctx = cnv.getContext("2d");
-    console.log(textToInsert);
-    ctx.font = "30px Calibri";
-    ctx.fillText(textToInsert, window.innerWidth/2, window.innerWidth/2);
+function writeText() {
+    let path = document.getElementById("textinput");
+    let button = document.getElementById("txtbtnSub");
+    let color = document.getElementById("colorPicker");
+    console.log(color);
+    if(path.value != "") {
+        let text = new insertText(window.innerWidth/2, window.innerHeight/2, 24, "black", "teste");
+        app.insertOnPoll(text);
+        app.drawObj(cnv);
+        path.value = "";
+        path.classList.remove("cenas2");
+        button.classList.remove("textSubmitOn");
+    }else {
+        alert("Erro :'(");
+    }
+}
 
+function loadInitImg() {
 
+    let r = new Rect(100, 100, 20, 20, "red");
+    let o = new Oval(150, 150, 50, 1, 1, "blue");
+    let h = new Heart(250, 250, 80, "pink");
+    let dad = new Picture(200, 200, 70, 70, "imgs/allison1.jpg");
+    let bear = new Bear(200,100,200,200, "black");
+    let ghost = new Ghost(200,100,200,200, "black");
+
+    let cenasfixes = [r, o, h, dad, bear, ghost];
+
+    for(let i = 0; i < cenasfixes.length; i++) {
+        convImg(cenasfixes[i]);
+    }
+
+}
+
+function convImg(obj) {
+var new_img_url = cnv.toDataURL();
+var fatherPath = document.getElementById("imagePosition");
+var path = document.createElement('div');
+path.className = "imgToInsert";
+fatherPath.append(path);
+var img = document.createElement('img');
+img.src = new_img_url;
+path.append(img);
+fatherPath.append(path);
 }

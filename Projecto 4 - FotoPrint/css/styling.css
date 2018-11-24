@@ -24,6 +24,10 @@ html, body {
     font-family: "Calibri", Arial;
     background-color: white;
 }
+
+p {
+    margin: 0;
+}
 ul {
     list-style-type: none;
     margin: 0;
@@ -54,6 +58,7 @@ canvas {
     border: none;
     margin: 0;
     padding: 0;
+    margin-top: 5px;
 }
 .cenas {
     width: 85px;
@@ -61,8 +66,11 @@ canvas {
 }
 
 .cenas2 {
-    width: 200px;
+    width: 150px;
     transition: .5s;
+}
+.menuHolder {
+    float: left;
 }
 
 .textSubmit {
@@ -73,4 +81,25 @@ canvas {
 .textSubmitOn {
     opacity: 1;
     transition: .8s;
+}
+
+#imagePosition {
+    float: right;
+    width: 100%;
+    max-width: 970px;
+    height: 120px;
+    margin-top: 15px;
+    margin-right: 8%;
+    border: 1px solid black;
+    overflow: auto;
+    white-space: nowrap;
+}
+
+.imgToInsert {
+    float: left;
+    width: 100px;
+    height: 110px;
+    margin-top: 5px;
+    margin-left: 5px;
+    background: aqua;
 }

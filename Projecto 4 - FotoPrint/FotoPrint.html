@@ -19,14 +19,14 @@
         <div class="menuHolder">
             <ul>
                 <li>
-                    <input type="text" class="cenas" placeholder="Inserir Texto..." onmouseover="extText(this)" onmouseout="shrinkTxt(this)" style="float: left;"/>
-                    <button onclick="" id="txtbtnSub" class="textSubmit">Inserir</button>
+                    <input type="text" id="textinput" class="cenas" placeholder="Inserir Texto..." onmouseover="extText(this)" onmouseout="shrinkTxt(this)" style="float: left;"/>
+                    <button onclick="writeText()" id="txtbtnSub" class="textSubmit">Inserir</button>
                 </li>
                 <li>
                     <input type="file" name="foto">
                 </li>
                 <li>
-                    <button>seems color</button>
+                    <input type="color" style="width: 144px;" id="colorPicker"/> Escolhe uma Cor...
                 </li>
                 <li>
                     <button >mudar cor de fundo</button>
@@ -35,6 +35,11 @@
                     <button onclick="remove()">remover item</button>
                 </li>
             </ul>
+        </div>
+        <div id="imagePosition">
+<!--            <div class="imgToInsert" id="tryout">
+                ce
+            </div>-->
         </div>
     </header>
     <section>
