@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<h1>Simple web camera display demo</h1>
+<video id="video" width="640" height="480" autoplay></video>
+
+<script>
+    window.addEventListener("DOMContentLoaded", WebCameraVideo, false);
+    function WebCameraVideo () {
+        let video = document.getElementById("video");
+        let videoObj = {"video": true};
+
+        let errBack = function (error) {
+            console.log("Video capture error: ", error.code);
+        };
+
+        let getStream = function (stream) {
+            video.src = window.URL.createObjectURL(stream);
+            video.play();
+        };
+
+        if (navigator.getUserMedia) {
+            navigator.getUserMedia(videoObj, getStream, errBack);
+        }
+        else if (navigator.mozGetUserMedia) {
+            navigator.mozGetUserMedia(videoObj, getStream, errBack);
+        }
+        else if (navigator.webkitGetUserMedia) {
+            navigator.webkitGetUserMedia(videoObj, getStream, errBack);
+        }
+    }
+</script>
+</body>
+</html>

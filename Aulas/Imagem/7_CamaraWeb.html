@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<h1>Simple web camera display demo</h1>
+<video id="video" width="320" height="240"></video>
+<canvas id="canvas" width="320" height="240">
+    Your browser doesn't recognize the canvas element
+</canvas>
+
+<script>
+    let constraints = { audio: true, video: { width: 320, height: 240 } };
+    p = navigator.mediaDevices.getUserMedia(constraints);
+    let canvas = document.querySelector("canvas");
+    let ctx=canvas.getContext("2d");
+    let video = document.querySelector('video');
+
+    let errBack = function (error) {
+        console.log(error.name + ": " + error.message);
+    };
+
+    let getStream = function (stream) {
+        video.src = window.URL.createObjectURL(stream);
+        video.onloadedmetadata = function(e) {
+            this.play();
+            computeFrame(this);
+        };
+    };
+
+    p.then(getStream);
+    p.catch(errBack);
+
+    function computeFrame(vid) {
+       ctx.drawImage(vid, 0, 0, 320, 240);
+       let pixels = ctx.getImageData(0, 0, 320, 240);
+       for (let i = 0, n = pixels.data.length; i < n; i += 4) {
+           pixels.data[i+0] = 255 - pixels.data[i+0];
+           pixels.data[i+1] = 255 - pixels.data[i+1];
+           pixels.data[i+2] = 255 - pixels.data[i+2];
+       }
+       ctx.putImageData(pixels, 0, 0);
+       window.setTimeout(function() {
+            computeFrame(vid);
+       }, 17);
+    }
+
+</script>
+</body>
+</html>

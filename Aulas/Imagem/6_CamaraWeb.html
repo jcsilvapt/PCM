@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<h1>Simple web camera display demo</h1>
+<video id="video" width="320" height="240" autoplay></video>
+
+<script>
+
+let constraints = { audio: true, video: { width: 320, height: 240 } };
+p = navigator.mediaDevices.getUserMedia(constraints);
+
+
+let errBack = function (error) {
+    console.log(error.name + ": " + error.message);
+};
+
+let getStream = function (stream) {
+    let video = document.querySelector('video');
+    video.src = window.URL.createObjectURL(stream);
+    video.onloadedmetadata = function(e) {
+        video.play();
+    };
+};
+
+p.then(getStream);
+p.catch(errBack);
+
+</script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Family Photos</title>
+    <meta charset="utf-8">
+</head>
+<body>
+    <canvas id="canvas" width="600" height="400">
+        Your browser doesn't recognize the canvas element
+    </canvas>
+    <script>
+		let canvas = document.querySelector("canvas");
+		let ctx=canvas.getContext("2d");
+		let img = new Image();
+		// wait until the image has loaded
+		img.onload = function () {
+			ctx.canvas.width = img.width;
+			ctx.canvas.height = img.height;
+			ctx.drawImage(img, 0, 0);
+			let pixels = ctx.getImageData(0, 0, img.width, img.height);
+			let r = 0.0, g = 0.0, b = 0.0, Y = 0.0;
+			for (let i = 0, n = pixels.data.length; i < n; i += 4) {
+				r = pixels.data[i+0]; // red
+				g = pixels.data[i+1]; // green
+				b = pixels.data[i+2]; // blue
+				Y = 0.299 * r + 0.587 * g + 0.114 * b;
+				pixels.data[i+0] = Y;
+				pixels.data[i+1] = Y;
+				pixels.data[i+2] = Y;
+			}
+			ctx.putImageData(pixels, 0, 0);
+        };
+		img.src = "images/daniel1.jpg";
+	</script>
+</body>
+</html>

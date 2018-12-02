@@ -59,6 +59,7 @@ canvas {
     margin: 0;
     padding: 0;
     margin-top: 5px;
+    background-color: inherit;
 }
 .cenas {
     width: 85px;
@@ -95,11 +96,7 @@ canvas {
     white-space: nowrap;
 }
 
-.imgToInsert {
+#tryout {
     float: left;
-    width: 100px;
-    height: 110px;
-    margin-top: 5px;
     margin-left: 5px;
-    background: aqua;
 }

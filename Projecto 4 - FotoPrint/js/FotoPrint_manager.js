@@ -3,16 +3,15 @@
 var app = null;
 var ctx = null;
 var cnv = null;
+var bgColor = null;
 
 function main() {
     cnv = document.getElementById('canvas');
     ctx = cnv.getContext("2d");
-    ctx.canvas.width = window.innerWidth-2;
-    ctx.canvas.height = window.innerHeight-160;
+    ctx.canvas.width = window.innerWidth ;
+    ctx.canvas.height = window.innerHeight - 200;
     drawCanvasRect(cnv);
     app = new FotoPrint();
-    app.init();
-    app.drawObj(cnv);
     cnv.addEventListener('mousedown', drag, false);
     cnv.addEventListener('dblclick', makenewitem, false);
     loadInitImg();
@@ -109,10 +108,17 @@ function remove() {
 //Onclick Event
 function saveasimage() {
     try {
-        window.open(document.getElementById('canvas').toDataURL("imgs/png"));}
-    catch(err) {
+        ctx.fillStyle = bgColor;
+        ctx.fillRect(0,0, cnv.width, cnv.height);
+        ctx.fill();
+        app.drawObj(cnv);
+        var img = cnv.toDataURL('images/png');
+        var win = window.open();
+        win.document.write('<img src="' + img + '"/>');
+    } catch (err) {
         alert("You need to change browsers OR upload the file to a server.");
     }
+
 }
 
 
@@ -145,43 +151,98 @@ function writeText() {
     let button = document.getElementById("txtbtnSub");
     let color = document.getElementById("colorPicker");
     console.log(color);
-    if(path.value != "") {
-        let text = new insertText(window.innerWidth/2, window.innerHeight/2, 24, "black", "teste");
+    if (path.value != "") {
+        let text = new insertText(window.innerWidth / 2, window.innerHeight / 2, 24, color.value, path.value);
         app.insertOnPoll(text);
         app.drawObj(cnv);
         path.value = "";
         path.classList.remove("cenas2");
         button.classList.remove("textSubmitOn");
-    }else {
+    } else {
         alert("Erro :'(");
     }
 }
 
 function loadInitImg() {
+    var canvas = document.getElementById('secretCanvas');
+    let r = new Rect(0, 10, 100, 100, "red");
+    let o = new Oval(canvas.width/2, canvas.height/2, 15, 3, 1, "blue");
+    let h = new Heart(canvas.width/2, canvas.height/2-10, 80, "pink");
+   /* let dad = new Picture(0, 10, 100, 100, ".   /imgs/allison1.jpg");*/
+    let bear = new Bear(0, 10, 100, 100, "black");
+    let ghost = new Ghost(0, 30, 100, 100, "black");
 
-    let r = new Rect(100, 100, 20, 20, "red");
-    let o = new Oval(150, 150, 50, 1, 1, "blue");
-    let h = new Heart(250, 250, 80, "pink");
-    let dad = new Picture(200, 200, 70, 70, "imgs/allison1.jpg");
-    let bear = new Bear(200,100,200,200, "black");
-    let ghost = new Ghost(200,100,200,200, "black");
+    let cenasfixes = [r, o, h, bear, ghost];
 
-    let cenasfixes = [r, o, h, dad, bear, ghost];
-
-    for(let i = 0; i < cenasfixes.length; i++) {
-        convImg(cenasfixes[i]);
+    for (let i = 0; i < cenasfixes.length; i++) {
+        convImg(cenasfixes[i], canvas);
     }
 
 }
 
-function convImg(obj) {
-var new_img_url = cnv.toDataURL();
-var fatherPath = document.getElementById("imagePosition");
-var path = document.createElement('div');
-path.className = "imgToInsert";
-fatherPath.append(path);
-var img = document.createElement('img');
-img.src = new_img_url;
-path.append(img);
-fatherPath.append(path);
+function convImg(obj, canvas) {
+    let context = canvas.getContext('2d');
+    obj.draw(canvas);
+    var img = canvas.toDataURL("image/png");
+
+    let initialPath = document.getElementById('imagePosition');
+    let path = document.createElement('div');
+    let image = document.createElement('img');
+    image.onclick = function () { imageCreator(obj) };
+    image.setAttribute('src', img);
+    path.appendChild(image);
+    path.id = "tryout";1
+    initialPath.appendChild(path);
+    context.clearRect(0,0,canvas.width, canvas.height);
+
+}
+
+function imageCreator(obj) {
+    let defaultSizeWH= 200;
+    let defaultX = cnv.width/2.5;
+    let defaultY = cnv.width/8;
+    let color = document.getElementById('colorPicker');
+    let toPut = null;
+    console.log(color.value);
+    switch(obj.name) {
+        case "R":
+            toPut = new Rect(defaultX, defaultY, defaultSizeWH, defaultSizeWH, color.value);
+            break;
+
+        case "P":
+            toPut = new Picture(defaultX, defaultY, 800, 600, obj.impath);
+            break;
+
+        case "O":
+            toPut = new Oval(defaultX, defaultY, 50, 1, 1, color.value);
+            break;
+
+        case "H":
+            toPut = new Heart(defaultX, defaultY, 80,  color.value);
+            break;
+        case "B":
+            toPut = new Bear(defaultX, defaultY,defaultSizeWH, defaultSizeWH,  color.value);
+            break;
+        case "G":
+            toPut = new Ghost(defaultX, defaultY, defaultSizeWH, defaultSizeWH,  color.value);
+            break;
+        default: throw new TypeError("Can not create this type of object");
+    }
+    app.insertOnPoll(toPut);
+    app.drawObj(cnv);
+}
+
+function insertImage() {
+    let imagePath = document.getElementById('browseImg');
+    let imgobj = window.URL.createObjectURL(imagePath.files[0]);
+    let pic = new Picture(0,0,400,400,imgobj);
+    imageCreator(pic);
+    console.log(imgobj.width);
+}
+
+function changeBackgroundColor() {
+    let color = document.getElementById('colorPicker').value;
+    let canvas = document.getElementById('canvas');
+    canvas.style.backgroundColor = color;
+    bgColor = color;
 }

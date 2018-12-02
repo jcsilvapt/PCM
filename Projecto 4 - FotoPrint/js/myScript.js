@@ -16,3 +16,8 @@ function shrinkTxt(path) {
 
     }
 }
+
+/*
+function insertImage(obj) {
+    console.log(obj.value);
+}*/

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Family Photos</title>
+    <meta charset="utf-8">
+</head>
+<body>
+    <canvas id="canvas" width="600" height="400">
+        Your browser doesn't recognize the canvas element
+    </canvas>
+    <script>
+		let canvas = document.querySelector("canvas");
+		let ctx=canvas.getContext("2d");
+		let img = new Image();
+		// wait until the image has loaded
+		img.onload = function () {
+			ctx.canvas.width = img.width;
+			ctx.canvas.height = img.height;
+			ctx.drawImage(img, 0, 0);
+			let pixels = ctx.getImageData(0, 0, img.width, img.height);
+			for (let i = 0, n = pixels.data.length; i < n; i += 4) {
+				pixels.data[i+0] = 255 - pixels.data[i+0]; // red
+				pixels.data[i+1] = 255 - pixels.data[i+1]; // green
+				pixels.data[i+2] = 255 - pixels.data[i+2]; // blue
+				// i + 3 is the alpha channel which we don�t need
+			}
+			ctx.putImageData(pixels, 0, 0);
+        };
+		img.src = "images/daniel1.jpg";
+	</script>
+</body>
+</html>

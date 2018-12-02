@@ -23,13 +23,13 @@
                     <button onclick="writeText()" id="txtbtnSub" class="textSubmit">Inserir</button>
                 </li>
                 <li>
-                    <input type="file" name="foto">
+                    <input type="file" name="foto" id="browseImg" onchange="insertImage()" accept="image/png, image/jpeg">
                 </li>
                 <li>
                     <input type="color" style="width: 144px;" id="colorPicker"/> Escolhe uma Cor...
                 </li>
                 <li>
-                    <button >mudar cor de fundo</button>
+                    <button onclick="changeBackgroundColor()">mudar cor de fundo</button>
                 </li>
                 <li>
                     <button onclick="remove()">remover item</button>
@@ -37,7 +37,8 @@
             </ul>
         </div>
         <div id="imagePosition">
-<!--            <div class="imgToInsert" id="tryout">
+            <canvas id="secretCanvas" width="100" height="100" style="display: none;"></canvas>
+<!--            <div class="imgToInsert" id="tryout">1
                 ce
             </div>-->
         </div>
@@ -47,7 +48,9 @@
             Your browser doesn't recognize the canvas element
         </canvas>
     </section>
-
+    <section style="text-align: center;">
+        <button onclick="saveasimage()" value="teste" style="margin-left: auto; margin-right: auto;">Gravar Imagem</button>
+    </section>
     <section>
         <script>window.onload = main();</script>
     </section>
